@@ -30,8 +30,7 @@ namespace EasyFlat.Classes
         }
     }
 
-    // Класс для арендатора
-    public class Tenant : User
+    public class Tenant : User     // арендатор
     {
         public string RentalAddress { get; }
 
@@ -42,8 +41,7 @@ namespace EasyFlat.Classes
         }
     }
 
-    // Класс для арендодателя
-    public class Landlord : User
+    public class Landlord : User       //арендодатель
     {
         public int PropertiesOwned { get; }
 
@@ -54,7 +52,6 @@ namespace EasyFlat.Classes
         }
     }
 
-    // Класс для администратора
     public class Administrator : User
     {
         public string Role { get; }
