@@ -8,10 +8,11 @@ namespace EasyFlat.Classes
 {
     public enum UserType
     {
-        Tenant,        //орендодар
-        Lessor,        //Орендодавець
+        Tenant,        // Арендатор
+        Lessor,        // Арендодатель
         Administrator
     }
+
     public class User
     {
         public int ID { get; }
@@ -28,9 +29,15 @@ namespace EasyFlat.Classes
             PhoneNumber = phoneNumber;
             Type = type;
         }
+
+        // Полиморфный метод
+        public virtual string DisplayInfo()
+        {
+            return $"ID: {ID}, Имя: {Name}, Email: {Email}, Телефон: {PhoneNumber}, Тип: {Type}";
+        }
     }
 
-    public class Tenant : User     // арендатор
+    public class Tenant : User     // Арендатор
     {
         public string RentalAddress { get; }
 
@@ -39,9 +46,14 @@ namespace EasyFlat.Classes
         {
             RentalAddress = rentalAddress;
         }
+
+        public override string DisplayInfo()
+        {
+            return base.DisplayInfo() + $", Адрес аренды: {RentalAddress}";
+        }
     }
 
-    public class Landlord : User       //арендодатель
+    public class Landlord : User       // Арендодатель
     {
         public int PropertiesOwned { get; }
 
@@ -49,6 +61,11 @@ namespace EasyFlat.Classes
             : base(id, name, email, phoneNumber, UserType.Lessor)
         {
             PropertiesOwned = propertiesOwned;
+        }
+
+        public override string DisplayInfo()
+        {
+            return base.DisplayInfo() + $", Количество объектов: {PropertiesOwned}";
         }
     }
 
@@ -60,6 +77,11 @@ namespace EasyFlat.Classes
             : base(id, name, email, phoneNumber, UserType.Administrator)
         {
             Role = role;
+        }
+
+        public override string DisplayInfo()
+        {
+            return base.DisplayInfo() + $", Роль: {Role}";
         }
     }
 }
