@@ -9,11 +9,11 @@ namespace EasyFlat.Repository
 {
 
    public interface IRepository<T>
-{
+   {
     void Add(T item);
     void Remove(int id);
     T GetById(int id);
     IEnumerable<T> GetAll();
     IEnumerable<T> GetSorted();
-}
+   }
 }
