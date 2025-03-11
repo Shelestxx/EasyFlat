@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyFlat.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace EasyFlat.Classes
         Cancelled,               //Скасовано
     }
 
-    public class Booking
+    public class Booking : IEntity
     {
         public int ID { get; }
         public int TenantID { get; }
@@ -37,4 +38,5 @@ namespace EasyFlat.Classes
             Status = newStatus;
         }
     }
+    public class BookingRepository : Repository<Booking> { }
 }

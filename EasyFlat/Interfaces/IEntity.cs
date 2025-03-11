@@ -8,6 +8,6 @@ namespace EasyFlat.Interfaces
 {
     public interface IEntity
     {
-        int Id { get; }
+        int ID { get; } 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyFlat.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EasyFlat.Classes
 {
-    public class Listing
+    public class Listing : IEntity  
     {
         public int ID { get; }
         public string Title { get; }
@@ -33,4 +34,5 @@ namespace EasyFlat.Classes
             PublishDate = publishDate;
         }
     }
+    public class ListingRepository : Repository<Listing> { } 
 }

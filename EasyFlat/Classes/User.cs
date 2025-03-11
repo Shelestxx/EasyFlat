@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyFlat.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace EasyFlat.Classes
         Lessor,        //Орендодавець
         Administrator
     }
-    public class User
+    public class User : IEntity 
     {
         public int ID { get; }
         public string Name { get; }
@@ -62,4 +63,5 @@ namespace EasyFlat.Classes
             Role = role;
         }
     }
+    public class UserRepository : Repository<User> { } 
 }
