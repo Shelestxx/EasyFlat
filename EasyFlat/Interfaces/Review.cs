@@ -10,4 +10,4 @@ namespace EasyFlat.Interfaces
     {
         void AddReview(Review review);
     }
-}
+}    
