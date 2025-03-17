@@ -11,5 +11,18 @@ namespace EasyFlat
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+        
+
+        private void Continue_Click_1(object sender, EventArgs e) 
+        {
+            Form2 newForm = new Form2(); // —оздаем экземпл€р Form2
+            newForm.Show(); // ќткрываем Form2
+            this.Hide(); // —крываем Form1 (чтобы можно было вернутьс€)
+        }
     }
 }
