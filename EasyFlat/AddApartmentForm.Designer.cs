@@ -34,64 +34,63 @@
             txtRentPrice = new TextBox();
             txtRoomCount = new TextBox();
             txtArea = new TextBox();
-            txtPhotoUrl = new TextBox();
             btnOK = new Button();
             SuspendLayout();
             // 
             // txtTitle
             // 
-            txtTitle.Location = new Point(143, 40);
+            txtTitle.Location = new Point(114, 32);
+            txtTitle.Margin = new Padding(2);
             txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(150, 31);
+            txtTitle.Size = new Size(121, 27);
             txtTitle.TabIndex = 0;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(143, 114);
+            txtDescription.Location = new Point(114, 91);
+            txtDescription.Margin = new Padding(2);
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(150, 31);
+            txtDescription.Size = new Size(121, 27);
             txtDescription.TabIndex = 1;
             // 
             // txtLocation
             // 
-            txtLocation.Location = new Point(143, 194);
+            txtLocation.Location = new Point(114, 155);
+            txtLocation.Margin = new Padding(2);
             txtLocation.Name = "txtLocation";
-            txtLocation.Size = new Size(150, 31);
+            txtLocation.Size = new Size(121, 27);
             txtLocation.TabIndex = 2;
             // 
             // txtRentPrice
             // 
-            txtRentPrice.Location = new Point(143, 266);
+            txtRentPrice.Location = new Point(114, 213);
+            txtRentPrice.Margin = new Padding(2);
             txtRentPrice.Name = "txtRentPrice";
-            txtRentPrice.Size = new Size(150, 31);
+            txtRentPrice.Size = new Size(121, 27);
             txtRentPrice.TabIndex = 3;
             // 
             // txtRoomCount
             // 
-            txtRoomCount.Location = new Point(143, 336);
+            txtRoomCount.Location = new Point(114, 269);
+            txtRoomCount.Margin = new Padding(2);
             txtRoomCount.Name = "txtRoomCount";
-            txtRoomCount.Size = new Size(150, 31);
+            txtRoomCount.Size = new Size(121, 27);
             txtRoomCount.TabIndex = 4;
             // 
             // txtArea
             // 
-            txtArea.Location = new Point(143, 406);
+            txtArea.Location = new Point(114, 325);
+            txtArea.Margin = new Padding(2);
             txtArea.Name = "txtArea";
-            txtArea.Size = new Size(150, 31);
+            txtArea.Size = new Size(121, 27);
             txtArea.TabIndex = 5;
-            // 
-            // txtPhotoUrl
-            // 
-            txtPhotoUrl.Location = new Point(142, 474);
-            txtPhotoUrl.Name = "txtPhotoUrl";
-            txtPhotoUrl.Size = new Size(150, 31);
-            txtPhotoUrl.TabIndex = 6;
             // 
             // btnOK
             // 
-            btnOK.Location = new Point(532, 244);
+            btnOK.Location = new Point(426, 195);
+            btnOK.Margin = new Padding(2);
             btnOK.Name = "btnOK";
-            btnOK.Size = new Size(112, 34);
+            btnOK.Size = new Size(90, 27);
             btnOK.TabIndex = 7;
             btnOK.Text = "button1";
             btnOK.UseVisualStyleBackColor = true;
@@ -99,17 +98,17 @@
             // 
             // AddApartmentForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 572);
+            ClientSize = new Size(640, 458);
             Controls.Add(btnOK);
-            Controls.Add(txtPhotoUrl);
             Controls.Add(txtArea);
             Controls.Add(txtRoomCount);
             Controls.Add(txtRentPrice);
             Controls.Add(txtLocation);
             Controls.Add(txtDescription);
             Controls.Add(txtTitle);
+            Margin = new Padding(2);
             Name = "AddApartmentForm";
             Text = "AddApartmentForm";
             ResumeLayout(false);
@@ -124,7 +123,6 @@
         private TextBox txtRentPrice;
         private TextBox txtRoomCount;
         private TextBox txtArea;
-        private TextBox txtPhotoUrl;
         private Button btnOK;
     }
 }

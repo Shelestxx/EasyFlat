@@ -23,7 +23,6 @@ namespace EasyFlat
                 rentPrice: decimal.Parse(txtRentPrice.Text),
                 roomCount: int.Parse(txtRoomCount.Text),
                 area: double.Parse(txtArea.Text),
-                photoUrl: txtPhotoUrl.Text,
                 ownerID: 1, // Потрібно передавати реального власника
                 publishDate: DateTime.Now
             );
