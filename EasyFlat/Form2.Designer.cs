@@ -28,18 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
+            add = new Button();
+            listBoxApartments = new ListBox();
             SuspendLayout();
+            // 
+            // add
+            // 
+            add.Location = new Point(586, 208);
+            add.Name = "add";
+            add.Size = new Size(112, 34);
+            add.TabIndex = 0;
+            add.Text = "Add";
+            add.UseVisualStyleBackColor = true;
+            add.Click += add_Click;
+            // 
+            // listBoxApartments
+            // 
+            listBoxApartments.FormattingEnabled = true;
+            listBoxApartments.ItemHeight = 25;
+            listBoxApartments.Location = new Point(58, 64);
+            listBoxApartments.Name = "listBoxApartments";
+            listBoxApartments.Size = new Size(267, 279);
+            listBoxApartments.TabIndex = 1;
+            listBoxApartments.SelectedIndexChanged += listBoxApartments_SelectedIndexChanged;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 522);
+            Controls.Add(listBoxApartments);
+            Controls.Add(add);
             Name = "Form2";
             Text = "Form2";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button add;
+        private ListBox listBoxApartments;
     }
 }
