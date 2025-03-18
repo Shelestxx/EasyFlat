@@ -8,7 +8,7 @@ using EasyFlat.Repository;
 namespace EasyFlat.Repository
 { 
 
-    public interface IRepository<T>
+    public interface IRepository<T> // просто набір МЕТОДІВ
     {
         void Add(T entity);
         void Remove(T entity);

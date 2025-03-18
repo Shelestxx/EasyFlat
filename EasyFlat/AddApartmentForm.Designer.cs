@@ -45,58 +45,58 @@
             // 
             // txtTitle
             // 
-            txtTitle.Location = new Point(155, 40);
+            txtTitle.Location = new Point(133, 31);
             txtTitle.Margin = new Padding(2);
             txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(150, 31);
+            txtTitle.Size = new Size(121, 27);
             txtTitle.TabIndex = 0;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(155, 114);
+            txtDescription.Location = new Point(133, 77);
             txtDescription.Margin = new Padding(2);
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(150, 31);
+            txtDescription.Size = new Size(121, 27);
             txtDescription.TabIndex = 1;
             // 
             // txtLocation
             // 
-            txtLocation.Location = new Point(155, 197);
+            txtLocation.Location = new Point(133, 127);
             txtLocation.Margin = new Padding(2);
             txtLocation.Name = "txtLocation";
-            txtLocation.Size = new Size(150, 31);
+            txtLocation.Size = new Size(121, 27);
             txtLocation.TabIndex = 2;
             // 
             // txtRentPrice
             // 
-            txtRentPrice.Location = new Point(155, 269);
+            txtRentPrice.Location = new Point(133, 177);
             txtRentPrice.Margin = new Padding(2);
             txtRentPrice.Name = "txtRentPrice";
-            txtRentPrice.Size = new Size(150, 31);
+            txtRentPrice.Size = new Size(121, 27);
             txtRentPrice.TabIndex = 3;
             // 
             // txtRoomCount
             // 
-            txtRoomCount.Location = new Point(155, 336);
+            txtRoomCount.Location = new Point(133, 225);
             txtRoomCount.Margin = new Padding(2);
             txtRoomCount.Name = "txtRoomCount";
-            txtRoomCount.Size = new Size(150, 31);
+            txtRoomCount.Size = new Size(121, 27);
             txtRoomCount.TabIndex = 4;
             // 
             // txtArea
             // 
-            txtArea.Location = new Point(155, 406);
+            txtArea.Location = new Point(133, 273);
             txtArea.Margin = new Padding(2);
             txtArea.Name = "txtArea";
-            txtArea.Size = new Size(150, 31);
+            txtArea.Size = new Size(121, 27);
             txtArea.TabIndex = 5;
             // 
             // btnOK
             // 
-            btnOK.Location = new Point(497, 241);
+            btnOK.Location = new Point(398, 193);
             btnOK.Margin = new Padding(2);
             btnOK.Name = "btnOK";
-            btnOK.Size = new Size(231, 34);
+            btnOK.Size = new Size(185, 27);
             btnOK.TabIndex = 7;
             btnOK.Text = "Створити оголошення";
             btnOK.UseVisualStyleBackColor = true;
@@ -105,62 +105,70 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(89, 43);
+            label1.Location = new Point(71, 34);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(61, 25);
+            label1.Size = new Size(51, 20);
             label1.TabIndex = 8;
             label1.Text = "Назва";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(96, 117);
+            label2.Location = new Point(77, 80);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(54, 25);
+            label2.Size = new Size(45, 20);
             label2.TabIndex = 9;
             label2.Text = "Опис";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(79, 200);
+            label3.Location = new Point(63, 130);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(71, 25);
+            label3.Size = new Size(59, 20);
             label3.TabIndex = 10;
             label3.Text = "Адреса";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(102, 275);
+            label4.Location = new Point(81, 180);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(48, 25);
+            label4.Size = new Size(41, 20);
             label4.TabIndex = 11;
             label4.Text = "Ціна";
+            label4.Click += label4_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(12, 342);
+            label5.Location = new Point(3, 228);
+            label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
-            label5.Size = new Size(138, 25);
+            label5.Size = new Size(119, 20);
             label5.TabIndex = 12;
             label5.Text = "Кількість кімнат";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(81, 409);
+            label6.Location = new Point(65, 276);
+            label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new Size(69, 25);
+            label6.Size = new Size(57, 20);
             label6.TabIndex = 13;
             label6.Text = "Площа";
+            label6.Click += label6_Click;
             // 
             // AddApartmentForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 572);
+            ClientSize = new Size(640, 458);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);

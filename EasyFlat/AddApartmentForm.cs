@@ -28,7 +28,17 @@ namespace EasyFlat
             );
 
             DialogResult = DialogResult.OK;
-            Close(); 
+            Close();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
