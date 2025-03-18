@@ -30,11 +30,12 @@
         {
             add = new Button();
             listBoxApartments = new ListBox();
+            btnDelete = new Button();
             SuspendLayout();
             // 
             // add
             // 
-            add.Location = new Point(586, 208);
+            add.Location = new Point(586, 161);
             add.Name = "add";
             add.Size = new Size(112, 34);
             add.TabIndex = 0;
@@ -52,11 +53,22 @@
             listBoxApartments.TabIndex = 1;
             listBoxApartments.SelectedIndexChanged += listBoxApartments_SelectedIndexChanged;
             // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(586, 252);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(112, 34);
+            btnDelete.TabIndex = 2;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += BtnDelete_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 522);
+            Controls.Add(btnDelete);
             Controls.Add(listBoxApartments);
             Controls.Add(add);
             Name = "Form2";
@@ -68,5 +80,6 @@
 
         private Button add;
         private ListBox listBoxApartments;
+        private Button btnDelete;
     }
 }

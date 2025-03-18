@@ -18,6 +18,7 @@ namespace EasyFlat
         {
             InitializeComponent();
             listBoxApartments.DoubleClick += ListBoxApartments_DoubleClick;
+            btnDelete.Click += BtnDelete_Click;
         }
 
         private void add_Click(object sender, EventArgs e)
@@ -45,5 +46,25 @@ namespace EasyFlat
                 detailsForm.ShowDialog(); // Відкриваємо форму деталей
             }
         }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = listBoxApartments.SelectedIndex;
+            if (selectedIndex >= 0)
+            {
+                // Підтвердження видалення
+                DialogResult result = MessageBox.Show("Ви впевнені, що хочете видалити це оголошення?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    apartments.RemoveAt(selectedIndex); // Видаляємо з списку
+                    listBoxApartments.Items.RemoveAt(selectedIndex); // Видаляємо з ListBox
+                }
+            }
+            else
+            {
+                MessageBox.Show("Виберіть оголошення для видалення.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        
+    }
     }
 }
