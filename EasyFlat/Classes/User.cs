@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BCrypt.Net;
 
 namespace EasyFlat.Classes
 {
@@ -63,5 +64,5 @@ namespace EasyFlat.Classes
             Role = role;
         }
     }
-    public class UserRepository : Repository<User> { } 
+    public class UserRepository : Repository<User> { }
 }
