@@ -21,6 +21,7 @@ namespace EasyFlat.Classes
         public string Email { get; }
         public string PhoneNumber { get; }
         public UserType Type { get; }
+        public string PasswordHash { get; private set; } 
 
         public User(int id, string name, string email, string phoneNumber, UserType type)
         {
@@ -29,6 +30,7 @@ namespace EasyFlat.Classes
             Email = email;
             PhoneNumber = phoneNumber;
             Type = type;
+            
         }
     }
 

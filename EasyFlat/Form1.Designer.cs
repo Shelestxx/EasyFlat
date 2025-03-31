@@ -28,53 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            pictureBox1 = new PictureBox();
-            Continue = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            btnRegistration = new Button();
+            btnLogin = new Button();
             SuspendLayout();
             // 
-            // pictureBox1
+            // btnRegistration
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-18, -45);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1028, 626);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            btnRegistration.Location = new Point(257, 221);
+            btnRegistration.Name = "btnRegistration";
+            btnRegistration.Size = new Size(201, 113);
+            btnRegistration.TabIndex = 0;
+            btnRegistration.Text = "Реєстрація";
+            btnRegistration.UseVisualStyleBackColor = true;
+            btnRegistration.Click += btnRegistration_Click;
             // 
-            // Continue
+            // btnLogin
             // 
-            Continue.BackColor = SystemColors.GradientActiveCaption;
-            Continue.ForeColor = SystemColors.ActiveCaptionText;
-            Continue.Location = new Point(333, 378);
-            Continue.Name = "Continue";
-            Continue.Size = new Size(276, 95);
-            Continue.TabIndex = 1;
-            Continue.Text = "Continue";
-            Continue.UseVisualStyleBackColor = false;
-            Continue.Click += Continue_Click_1;
+            btnLogin.Location = new Point(606, 221);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(207, 113);
+            btnLogin.TabIndex = 1;
+            btnLogin.Text = "Вхід";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1000, 550);
-            Controls.Add(Continue);
-            Controls.Add(pictureBox1);
+            Controls.Add(btnLogin);
+            Controls.Add(btnRegistration);
             Margin = new Padding(4);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
-        private Button Continue;
+        private Button btnRegistration;
+        private Button btnLogin;
     }
 }

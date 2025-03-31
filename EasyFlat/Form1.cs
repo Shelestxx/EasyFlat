@@ -16,11 +16,20 @@ namespace EasyFlat
         {
 
         }
+
+
         
 
-        private void Continue_Click_1(object sender, EventArgs e) 
+        private void btnRegistration_Click(object sender, EventArgs e)
         {
-            Form2 newForm = new Form2(); // —оздаем экземпл€р Form2
+            RegistrationForm newForm = new RegistrationForm(); // —оздаем экземпл€р Form2
+            newForm.Show(); // ќткрываем Form2
+            this.Hide(); // —крываем Form1 (чтобы можно было вернутьс€)
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            LoginForm newForm = new LoginForm(); // —оздаем экземпл€р Form2 
             newForm.Show(); // ќткрываем Form2
             this.Hide(); // —крываем Form1 (чтобы можно было вернутьс€)
         }
