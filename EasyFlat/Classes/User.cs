@@ -1,20 +1,18 @@
 ﻿using EasyFlat.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 using BCrypt.Net;
 
 namespace EasyFlat.Classes
 {
     public enum UserType
     {
-        Tenant,        //орендодар
-        Lessor,        //Орендодавець
-        Administrator
+        Regular,    // Орендодавець/Орендар
+        Administrator    // Адміністратор
     }
-    public class User : IEntity 
+
+    public class User : IEntity
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -22,7 +20,7 @@ namespace EasyFlat.Classes
         public string Pass { get; set; }
         public string PhoneNumber { get; set; }
         public UserType Type { get; set; }
-        public string PasswordHash { get; private set; } 
+        public string PasswordHash { get; private set; }
 
         public User(int id, string name, string email, string pass, string phoneNumber, UserType type)
         {
@@ -32,29 +30,29 @@ namespace EasyFlat.Classes
             Pass = pass;
             PhoneNumber = phoneNumber;
             Type = type;
-            
         }
     }
 
-    public class Tenant : User     // арендатор
+    public class PropertyUser : User // Універсальний користувач
     {
-        public string RentalAddress { get; }
+        public List<string> RentalAddresses { get; set; } = new List<string>(); // Оренда
+        public int PropertiesOwned { get; set; } = 0; // Здача
 
-        public Tenant(int id, string name, string email, string pass, string phoneNumber, string rentalAddress)
-            : base(id, name, email, pass, phoneNumber, UserType.Tenant)
+        public PropertyUser(int id, string name, string email, string pass, string phoneNumber)
+            : base(id, name, email, pass, phoneNumber, UserType.Regular) { }
+
+        // Оренда об'єкта
+        public void RentProperty(string address)
         {
-            RentalAddress = rentalAddress;
+            RentalAddresses.Add(address);
+            MessageBox.Show($"Орендовано об'єкт за адресою: {address}", "Оренда", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-    }
 
-    public class Landlord : User       //арендодатель
-    {
-        public int PropertiesOwned { get; }
-
-        public Landlord(int id, string name, string email, string pass, string phoneNumber, int propertiesOwned)
-            : base(id, name, email, pass, phoneNumber, UserType.Lessor)
+        // Здача об'єкта
+        public void ListProperty(int properties)
         {
-            PropertiesOwned = propertiesOwned;
+            PropertiesOwned += properties;
+            MessageBox.Show($"Додано {properties} об'єкт(ів) нерухомості", "Здача нерухомості", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 
@@ -68,5 +66,6 @@ namespace EasyFlat.Classes
             Role = role;
         }
     }
+
     public class UserRepository : Repository<User> { }
 }

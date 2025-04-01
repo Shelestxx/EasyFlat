@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EasyFlat.Classes;
 
 namespace EasyFlat
 {
@@ -22,11 +23,20 @@ namespace EasyFlat
             string email = txtEmail.Text;
             string pass = txtPass.Text;
             string name = txtName.Text;
+            string phoneNumber = txtPhoneNumber.Text;
+           
 
-            if (email == null || email == "" | pass == null || pass == "" | name == null || name == "")
+            if (email == null || email == "" | pass == null || pass == "" | name == null || name == "" | phoneNumber == null || phoneNumber == "")
             {
                 MessageBox.Show("Please try again");
             }
+            UserManager userManager = new UserManager();
+            int generatedId = userManager.GenerateUserId();    
+
+            User user = new User(generatedId, name, email, pass, phoneNumber, UserType.Regular);
+            
+             
+
         }
     }
 }

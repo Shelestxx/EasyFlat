@@ -35,49 +35,52 @@
             btnRegister = new Button();
             label3 = new Label();
             txtName = new TextBox();
+            label4 = new Label();
+            txtPhoneNumber = new TextBox();
             SuspendLayout();
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(173, 68);
+            txtEmail.Location = new Point(216, 85);
             txtEmail.Margin = new Padding(2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(125, 27);
+            txtEmail.Size = new Size(155, 31);
             txtEmail.TabIndex = 0;
             // 
             // txtPass
             // 
-            txtPass.Location = new Point(173, 110);
+            txtPass.Location = new Point(216, 138);
             txtPass.Margin = new Padding(2);
             txtPass.Name = "txtPass";
-            txtPass.Size = new Size(125, 27);
+            txtPass.Size = new Size(155, 31);
             txtPass.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(98, 75);
+            label1.Location = new Point(122, 94);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(46, 20);
+            label1.Size = new Size(54, 25);
             label1.TabIndex = 2;
             label1.Text = "Email";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(74, 117);
+            label2.Location = new Point(92, 146);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(70, 20);
+            label2.Size = new Size(87, 25);
             label2.TabIndex = 3;
             label2.Text = "Password";
             // 
             // btnRegister
             // 
-            btnRegister.Location = new Point(174, 184);
+            btnRegister.Location = new Point(216, 345);
+            btnRegister.Margin = new Padding(4, 4, 4, 4);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(124, 46);
+            btnRegister.Size = new Size(155, 58);
             btnRegister.TabIndex = 4;
             btnRegister.Text = "Register";
             btnRegister.UseVisualStyleBackColor = true;
@@ -86,24 +89,44 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(95, 29);
+            label3.Location = new Point(119, 36);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(49, 20);
+            label3.Size = new Size(59, 25);
             label3.TabIndex = 5;
             label3.Text = "Name";
             // 
             // txtName
             // 
-            txtName.Location = new Point(173, 22);
+            txtName.Location = new Point(216, 28);
+            txtName.Margin = new Padding(4, 4, 4, 4);
             txtName.Name = "txtName";
-            txtName.Size = new Size(125, 27);
+            txtName.Size = new Size(155, 31);
             txtName.TabIndex = 6;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(71, 199);
+            label4.Name = "label4";
+            label4.Size = new Size(129, 25);
+            label4.TabIndex = 7;
+            label4.Text = "Phone number";
+            // 
+            // txtPhoneNumber
+            // 
+            txtPhoneNumber.Location = new Point(216, 193);
+            txtPhoneNumber.Name = "txtPhoneNumber";
+            txtPhoneNumber.Size = new Size(155, 31);
+            txtPhoneNumber.TabIndex = 8;
             // 
             // RegistrationForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(439, 438);
+            ClientSize = new Size(549, 548);
+            Controls.Add(txtPhoneNumber);
+            Controls.Add(label4);
             Controls.Add(txtName);
             Controls.Add(label3);
             Controls.Add(btnRegister);
@@ -127,5 +150,7 @@
         private Button btnRegister;
         private Label label3;
         private TextBox txtName;
+        private Label label4;
+        private TextBox txtPhoneNumber;
     }
 }
