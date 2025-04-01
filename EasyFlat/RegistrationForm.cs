@@ -21,14 +21,19 @@ namespace EasyFlat
         {
             string email = txtEmail.Text;
             string pass = txtPass.Text;
+            string name = txtName.Text;
 
             if (email == null || email == "")
             {
-                MessageBox.Show("email Failed is required");
+                MessageBox.Show("Email Failed is required");
             }
             if (pass == null || pass == "")
             {
                 MessageBox.Show("Password Failed is required");
+            }
+            if (name == null || name == "")
+            {
+                MessageBox.Show("Name Failed is required");
             }
         }
     }
