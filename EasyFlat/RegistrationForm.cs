@@ -23,17 +23,9 @@ namespace EasyFlat
             string pass = txtPass.Text;
             string name = txtName.Text;
 
-            if (email == null || email == "")
+            if (email == null || email == "" | pass == null || pass == "" | name == null || name == "")
             {
-                MessageBox.Show("Email Failed is required");
-            }
-            if (pass == null || pass == "")
-            {
-                MessageBox.Show("Password Failed is required");
-            }
-            if (name == null || name == "")
-            {
-                MessageBox.Show("Name Failed is required");
+                MessageBox.Show("Please try again");
             }
         }
     }
