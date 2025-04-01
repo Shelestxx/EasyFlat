@@ -16,12 +16,12 @@ namespace EasyFlat.Classes
     }
     public class User : IEntity 
     {
-        public int ID { get; }
-        public string Name { get; }
-        public string Email { get; }
-        public string Pass { get; }
-        public string PhoneNumber { get; }
-        public UserType Type { get; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Pass { get; set; }
+        public string PhoneNumber { get; set; }
+        public UserType Type { get; set; }
         public string PasswordHash { get; private set; } 
 
         public User(int id, string name, string email, string pass, string phoneNumber, UserType type)
