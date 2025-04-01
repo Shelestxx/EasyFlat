@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtEmail = new TextBox();
+            txtPass = new TextBox();
             label1 = new Label();
             label2 = new Label();
+            btnLogin = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // txtEmail
             // 
-            textBox1.Location = new Point(219, 81);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
-            textBox1.TabIndex = 0;
+            txtEmail.Location = new Point(219, 81);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(150, 31);
+            txtEmail.TabIndex = 0;
             // 
-            // textBox2
+            // txtPass
             // 
-            textBox2.Location = new Point(224, 167);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(150, 31);
-            textBox2.TabIndex = 1;
+            txtPass.Location = new Point(224, 167);
+            txtPass.Name = "txtPass";
+            txtPass.Size = new Size(150, 31);
+            txtPass.TabIndex = 1;
             // 
             // label1
             // 
@@ -66,15 +67,26 @@
             label2.TabIndex = 3;
             label2.Text = "password";
             // 
+            // btnLogin
+            // 
+            btnLogin.Location = new Point(253, 266);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(225, 80);
+            btnLogin.TabIndex = 4;
+            btnLogin.Text = "Login";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnLogin);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtPass);
+            Controls.Add(txtEmail);
             Name = "LoginForm";
             Text = "LoginForm";
             ResumeLayout(false);
@@ -83,9 +95,10 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtEmail;
+        private TextBox txtPass;
         private Label label1;
         private Label label2;
+        private Button btnLogin;
     }
 }
