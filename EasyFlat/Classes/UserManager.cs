@@ -11,8 +11,7 @@ namespace EasyFlat.Classes
 {
     public class UserManager
     {
-        private static readonly string userFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "users.db");
-
+        private const string userFilePath = "../../users.db";
         private List<User> Users { get; set; }
 
         public UserManager() 

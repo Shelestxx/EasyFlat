@@ -34,8 +34,16 @@ namespace EasyFlat
             int generatedId = userManager.GenerateUserId();    
 
             User user = new User(generatedId, name, email, pass, phoneNumber, UserType.Regular);
-            
-             
+
+            if (userManager.AddUser(user))
+            {
+                MessageBox.Show("Registration successful!");
+                this.Close(); 
+            }
+            else
+            {
+                MessageBox.Show("User with this email already exists.");
+            }
 
         }
     }
