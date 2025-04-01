@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using BCrypt.Net; 
 
 
 namespace EasyFlat.Classes
@@ -33,6 +34,9 @@ namespace EasyFlat.Classes
             {
                 return false;
             }
+
+            user.Pass = BCrypt.Net.BCrypt.HashPassword(user.Pass);
+
             this.Users.Add(user);
 
             this.UserToFile();
@@ -42,10 +46,29 @@ namespace EasyFlat.Classes
 
         public User LoginUser(string email, string pass)
         {
-            User user = this.Users.Find(u=> u.Email == email && u.Pass == pass);
+            // 1. Знаходимо користувача ТІЛЬКИ за email
+            User user = this.Users.Find(u => u.Email == email);
+
+            // 2. Якщо користувача не знайдено
+            if (user == null)
+            {
+                Console.WriteLine("User not found!");
+                return null;
+            }
+
+            // 3. Перевіряємо пароль через BCrypt
+            bool isPasswordCorrect = BCrypt.Net.BCrypt.Verify(pass, user.Pass);
+
+
+            if (!isPasswordCorrect)
+            {
+                return null;
+            }
+
             return user;
         }
-        
+
+
         private void ReadUsersFrimFile()
         {
             if (File.Exists(userFilePath))
