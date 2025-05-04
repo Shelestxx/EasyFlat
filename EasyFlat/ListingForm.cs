@@ -27,7 +27,7 @@ namespace EasyFlat
         {
             if (_currentUser == null)
             {
-                MessageBox.Show("Ошибка: пользователь не авторизован.");
+                MessageBox.Show("Помилка: користувач не авторизований.");
                 return;
             }
 
