@@ -28,38 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             btnRegistration = new Button();
             btnLogin = new Button();
             SuspendLayout();
             // 
             // btnRegistration
             // 
-            btnRegistration.Location = new Point(257, 221);
+            btnRegistration.BackColor = SystemColors.ButtonHighlight;
+            btnRegistration.Cursor = Cursors.Hand;
+            btnRegistration.FlatAppearance.BorderColor = Color.Fuchsia;
+            btnRegistration.FlatAppearance.BorderSize = 10;
+            btnRegistration.FlatAppearance.MouseDownBackColor = SystemColors.ButtonHighlight;
+            btnRegistration.ForeColor = Color.Black;
+            btnRegistration.Image = (Image)resources.GetObject("btnRegistration.Image");
+            btnRegistration.Location = new Point(145, 186);
+            btnRegistration.Margin = new Padding(2);
             btnRegistration.Name = "btnRegistration";
-            btnRegistration.Size = new Size(201, 113);
+            btnRegistration.Size = new Size(161, 90);
             btnRegistration.TabIndex = 0;
             btnRegistration.Text = "Реєстрація";
-            btnRegistration.UseVisualStyleBackColor = true;
+            btnRegistration.UseVisualStyleBackColor = false;
             btnRegistration.Click += btnRegistration_Click;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(606, 221);
+            btnLogin.BackColor = Color.Black;
+            btnLogin.Cursor = Cursors.Hand;
+            btnLogin.FlatAppearance.BorderColor = Color.FromArgb(192, 0, 192);
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.Image = (Image)resources.GetObject("btnLogin.Image");
+            btnLogin.Location = new Point(422, 186);
+            btnLogin.Margin = new Padding(2);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(207, 113);
+            btnLogin.Size = new Size(166, 90);
             btnLogin.TabIndex = 1;
             btnLogin.Text = "Вхід";
-            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 550);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(791, 440);
             Controls.Add(btnLogin);
             Controls.Add(btnRegistration);
-            Margin = new Padding(4);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
