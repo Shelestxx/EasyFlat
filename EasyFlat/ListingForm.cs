@@ -25,6 +25,12 @@ namespace EasyFlat
 
         private void btnAddListing_Click(object sender, EventArgs e)
         {
+            if (_currentUser == null)
+            {
+                MessageBox.Show("Ошибка: пользователь не авторизован.");
+                return;
+            }
+
             string title = txtTitle.Text;
             string description = txtDescription.Text;
             string location = txtLocation.Text;
@@ -51,6 +57,7 @@ namespace EasyFlat
             MessageBox.Show("Listing added successfully.");
             ClearFields();
         }
+
 
         private void LoadListingsFromFile()
         {
