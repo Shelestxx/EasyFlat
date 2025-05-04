@@ -39,6 +39,12 @@ namespace EasyFlat
             }
 
             MessageBox.Show($"Hello, {user.Name}");
+
+           
+                AllListingsForm newForm = new AllListingsForm(); // Создаем экземпляр Form2
+                newForm.Show(); // Открываем Form2
+                this.Hide(); // Скрываем Form1 (чтобы можно было вернуться)
+            
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
