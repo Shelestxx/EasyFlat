@@ -41,90 +41,95 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(216, 85);
+            txtEmail.BackColor = SystemColors.MenuBar;
+            txtEmail.Location = new Point(173, 68);
             txtEmail.Margin = new Padding(2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(155, 31);
+            txtEmail.Size = new Size(125, 27);
             txtEmail.TabIndex = 0;
             // 
             // txtPass
             // 
-            txtPass.Location = new Point(216, 138);
+            txtPass.BackColor = SystemColors.MenuBar;
+            txtPass.Location = new Point(173, 110);
             txtPass.Margin = new Padding(2);
             txtPass.Name = "txtPass";
-            txtPass.Size = new Size(155, 31);
+            txtPass.Size = new Size(125, 27);
             txtPass.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(122, 94);
+            label1.Location = new Point(123, 75);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(54, 25);
+            label1.Size = new Size(46, 20);
             label1.TabIndex = 2;
             label1.Text = "Email";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(92, 146);
+            label2.Location = new Point(99, 117);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(87, 25);
+            label2.Size = new Size(70, 20);
             label2.TabIndex = 3;
             label2.Text = "Password";
             // 
             // btnRegister
             // 
-            btnRegister.Location = new Point(216, 345);
-            btnRegister.Margin = new Padding(4, 4, 4, 4);
+            btnRegister.BackColor = SystemColors.AppWorkspace;
+            btnRegister.Location = new Point(173, 226);
             btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(155, 58);
+            btnRegister.Size = new Size(125, 54);
             btnRegister.TabIndex = 4;
             btnRegister.Text = "Register";
-            btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.UseVisualStyleBackColor = false;
             btnRegister.Click += btnRegister_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(119, 36);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(120, 29);
             label3.Name = "label3";
-            label3.Size = new Size(59, 25);
+            label3.Size = new Size(49, 20);
             label3.TabIndex = 5;
             label3.Text = "Name";
             // 
             // txtName
             // 
-            txtName.Location = new Point(216, 28);
-            txtName.Margin = new Padding(4, 4, 4, 4);
+            txtName.BackColor = SystemColors.MenuBar;
+            txtName.Location = new Point(173, 22);
             txtName.Name = "txtName";
-            txtName.Size = new Size(155, 31);
+            txtName.Size = new Size(125, 27);
             txtName.TabIndex = 6;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(71, 199);
+            label4.Location = new Point(64, 161);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(129, 25);
+            label4.Size = new Size(105, 20);
             label4.TabIndex = 7;
             label4.Text = "Phone number";
             // 
             // txtPhoneNumber
             // 
-            txtPhoneNumber.Location = new Point(216, 193);
+            txtPhoneNumber.BackColor = SystemColors.MenuBar;
+            txtPhoneNumber.Location = new Point(173, 154);
+            txtPhoneNumber.Margin = new Padding(2, 2, 2, 2);
             txtPhoneNumber.Name = "txtPhoneNumber";
-            txtPhoneNumber.Size = new Size(155, 31);
+            txtPhoneNumber.Size = new Size(125, 27);
             txtPhoneNumber.TabIndex = 8;
             // 
             // RegistrationForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(549, 548);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(439, 374);
             Controls.Add(txtPhoneNumber);
             Controls.Add(label4);
             Controls.Add(txtName);

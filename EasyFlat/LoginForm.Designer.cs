@@ -39,7 +39,7 @@
             // 
             txtEmail.BackColor = SystemColors.InactiveCaption;
             txtEmail.Cursor = Cursors.Hand;
-            txtEmail.Location = new Point(179, 62);
+            txtEmail.Location = new Point(269, 69);
             txtEmail.Margin = new Padding(2);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(121, 27);
@@ -50,7 +50,7 @@
             // 
             txtPass.BackColor = SystemColors.InactiveCaption;
             txtPass.Cursor = Cursors.Hand;
-            txtPass.Location = new Point(179, 134);
+            txtPass.Location = new Point(269, 134);
             txtPass.Margin = new Padding(2);
             txtPass.Name = "txtPass";
             txtPass.Size = new Size(121, 27);
@@ -59,7 +59,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(123, 69);
+            label1.Location = new Point(219, 72);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(46, 20);
@@ -70,7 +70,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(97, 141);
+            label2.Location = new Point(195, 137);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(70, 20);
@@ -81,8 +81,8 @@
             // 
             btnLogin.BackColor = SystemColors.InactiveCaption;
             btnLogin.Cursor = Cursors.Hand;
-            btnLogin.ForeColor = Color.IndianRed;
-            btnLogin.Location = new Point(202, 213);
+            btnLogin.ForeColor = Color.DarkGoldenrod;
+            btnLogin.Location = new Point(240, 222);
             btnLogin.Margin = new Padding(2);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(180, 64);
@@ -102,6 +102,7 @@
             Controls.Add(label1);
             Controls.Add(txtPass);
             Controls.Add(txtEmail);
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
             Name = "LoginForm";
             Text = "LoginForm";
