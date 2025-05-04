@@ -1,6 +1,6 @@
 ﻿namespace EasyFlat
 {
-    partial class MainForm
+    partial class ListingForm
     {
         /// <summary>
         /// Required designer variable.

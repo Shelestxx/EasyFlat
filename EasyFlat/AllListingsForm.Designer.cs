@@ -36,6 +36,7 @@
             columnHeader5 = new ColumnHeader();
             columnHeader6 = new ColumnHeader();
             columnHeader7 = new ColumnHeader();
+            Listingbtn = new Button();
             SuspendLayout();
             // 
             // listView1
@@ -80,15 +81,25 @@
             columnHeader7.Text = "Дата публікації";
             columnHeader7.Width = 120;
             // 
+            // Listingbtn
+            // 
+            Listingbtn.Location = new Point(180, 189);
+            Listingbtn.Name = "Listingbtn";
+            Listingbtn.Size = new Size(94, 29);
+            Listingbtn.TabIndex = 1;
+            Listingbtn.Text = "button1";
+            Listingbtn.UseVisualStyleBackColor = true;
+            Listingbtn.Click += Listingbtn_Click;
+            // 
             // AllListingsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1536, 689);
+            Controls.Add(Listingbtn);
             Controls.Add(listView1);
             Name = "AllListingsForm";
             Text = "AllListingsForm";
-         
             ResumeLayout(false);
         }
 
@@ -102,5 +113,6 @@
         private ColumnHeader columnHeader5;
         private ColumnHeader columnHeader6;
         private ColumnHeader columnHeader7;
+        private Button Listingbtn;
     }
 }

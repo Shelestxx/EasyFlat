@@ -9,14 +9,14 @@ using static System.Windows.Forms.MonthCalendar;
 
 namespace EasyFlat
 {
-    public partial class MainForm : Form
+    public partial class ListingForm : Form
     {
         private readonly ListingRepository _listingRepository = new ListingRepository();
         private readonly User _currentUser;
 
         private const string ListingsFilePath = "../../listings.json";
 
-        public MainForm(User currentUser) 
+        public ListingForm(User currentUser) 
         {
             InitializeComponent();
             _currentUser = currentUser;

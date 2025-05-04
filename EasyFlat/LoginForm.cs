@@ -24,7 +24,7 @@ namespace EasyFlat
             string email = txtEmail.Text;
             string pass = txtPass.Text;
 
-            if (email == null || email == "" | pass == null || pass == "")
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(pass))
             {
                 MessageBox.Show("Please try again");
                 return;
@@ -40,12 +40,12 @@ namespace EasyFlat
 
             MessageBox.Show($"Hello, {user.Name}");
 
-           
-                AllListingsForm newForm = new AllListingsForm(); // Создаем экземпляр Form2
-                newForm.Show(); // Открываем Form2
-                this.Hide(); // Скрываем Form1 (чтобы можно было вернуться)
-            
+            // Передача поточного користувача в AllListingsForm
+            AllListingsForm newForm = new AllListingsForm();  // Передаємо користувача
+            newForm.Show();  // Відкриваємо нову форму
+            this.Hide();     // Сховуємо поточну форму
         }
+
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {

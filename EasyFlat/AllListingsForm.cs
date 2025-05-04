@@ -12,6 +12,7 @@ namespace EasyFlat
     {
         private readonly ListingRepository _listingRepository = new ListingRepository();
         private const string ListingsFilePath = "../../listings.json";
+        private User _currentUser;
 
         public AllListingsForm()
         {
@@ -53,6 +54,18 @@ namespace EasyFlat
             item.SubItems.Add(l.PublishDate.ToShortDateString());
 
             listView1.Items.Add(item);
+        }
+
+        private void Listingbtn_Click(object sender, EventArgs e)
+        {
+            ListingForm listingForm = new ListingForm(_currentUser);
+
+            // Відкриття ListingForm
+            listingForm.Show();
+
+            // Закриття поточної форми (якщо потрібно)
+            this.Hide(); // або this.Close() якщо хочете закрити поточну форму
+
         }
     }
 }
