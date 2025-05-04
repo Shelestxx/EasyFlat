@@ -14,14 +14,16 @@ namespace EasyFlat
         private const string ListingsFilePath = "../../listings.json";
         private User _currentUser;
 
-        public AllListingsForm()
-        {
-            InitializeComponent();
-            InitializeListView();
-            LoadListingsFromFile();
-        }
+       public AllListingsForm(User currentUser)
+{
+    InitializeComponent();
+    _currentUser = currentUser;
+    InitializeListView();
+    LoadListingsFromFile();
+}
 
-        private void InitializeListView()
+
+        private void InitializeListView() 
         {
             listView1.View = View.Details;
             listView1.FullRowSelect = true;

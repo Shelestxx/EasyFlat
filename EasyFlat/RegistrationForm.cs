@@ -45,7 +45,7 @@ namespace EasyFlat
                 MessageBox.Show("User with this email already exists.");
             }
 
-            AllListingsForm newForm = new AllListingsForm(); // Создаем экземпляр Form2
+            AllListingsForm newForm = new AllListingsForm(user); // Создаем экземпляр Form2
             newForm.Show(); // Открываем Form2
             this.Hide(); // Скрываем Form1 (чтобы можно было вернуться)
 

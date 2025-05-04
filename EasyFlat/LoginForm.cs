@@ -41,7 +41,7 @@ namespace EasyFlat
             MessageBox.Show($"Hello, {user.Name}");
 
             // Передача поточного користувача в AllListingsForm
-            AllListingsForm newForm = new AllListingsForm();  // Передаємо користувача
+            AllListingsForm newForm = new AllListingsForm(user);  // Передаємо користувача
             newForm.Show();  // Відкриваємо нову форму
             this.Hide();     // Сховуємо поточну форму
         }

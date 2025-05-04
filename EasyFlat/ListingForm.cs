@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using EasyFlat.Classes;
+
 using Newtonsoft.Json;
 using static System.Windows.Forms.MonthCalendar;
 
@@ -56,6 +57,10 @@ namespace EasyFlat
 
             MessageBox.Show("Listing added successfully.");
             ClearFields();
+
+            AllListingsForm newForm = new AllListingsForm(_currentUser); // Создаем экземпляр Form2  
+            newForm.Show(); // Открываем Form2
+            this.Hide(); // Скрываем Form1 (чтобы можно было вернуться)
         }
 
 
