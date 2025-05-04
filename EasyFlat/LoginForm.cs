@@ -24,7 +24,7 @@ namespace EasyFlat
             string email = txtEmail.Text;
             string pass = txtPass.Text;
 
-            if (email == null || email == "" | pass == null || pass == "" ) 
+            if (email == null || email == "" | pass == null || pass == "")
             {
                 MessageBox.Show("Please try again");
                 return;
@@ -39,6 +39,16 @@ namespace EasyFlat
             }
 
             MessageBox.Show($"Hello, {user.Name}");
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
