@@ -45,6 +45,8 @@
             // 
             // txtTitle
             // 
+            txtTitle.BackColor = SystemColors.MenuBar;
+            txtTitle.Cursor = Cursors.Hand;
             txtTitle.Location = new Point(176, 44);
             txtTitle.Name = "txtTitle";
             txtTitle.Size = new Size(165, 27);
@@ -53,7 +55,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(14, 44);
+            label1.Location = new Point(28, 51);
             label1.Name = "label1";
             label1.Size = new Size(142, 20);
             label1.TabIndex = 1;
@@ -61,7 +63,9 @@
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(178, 108);
+            txtDescription.BackColor = SystemColors.MenuBar;
+            txtDescription.Cursor = Cursors.Hand;
+            txtDescription.Location = new Point(176, 91);
             txtDescription.Name = "txtDescription";
             txtDescription.Size = new Size(125, 27);
             txtDescription.TabIndex = 2;
@@ -69,7 +73,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(53, 115);
+            label2.Location = new Point(125, 98);
             label2.Name = "label2";
             label2.Size = new Size(45, 20);
             label2.TabIndex = 3;
@@ -77,7 +81,9 @@
             // 
             // txtLocation
             // 
-            txtLocation.Location = new Point(181, 183);
+            txtLocation.BackColor = SystemColors.MenuBar;
+            txtLocation.Cursor = Cursors.Hand;
+            txtLocation.Location = new Point(176, 137);
             txtLocation.Name = "txtLocation";
             txtLocation.Size = new Size(125, 27);
             txtLocation.TabIndex = 4;
@@ -85,7 +91,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(57, 192);
+            label3.Location = new Point(106, 144);
             label3.Name = "label3";
             label3.Size = new Size(64, 20);
             label3.TabIndex = 5;
@@ -94,7 +100,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(50, 257);
+            label4.Location = new Point(129, 189);
             label4.Name = "label4";
             label4.Size = new Size(41, 20);
             label4.TabIndex = 7;
@@ -103,7 +109,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(24, 334);
+            label5.Location = new Point(51, 233);
             label5.Name = "label5";
             label5.Size = new Size(119, 20);
             label5.TabIndex = 9;
@@ -111,7 +117,9 @@
             // 
             // txtArea
             // 
-            txtArea.Location = new Point(175, 398);
+            txtArea.BackColor = SystemColors.MenuBar;
+            txtArea.Cursor = Cursors.Hand;
+            txtArea.Location = new Point(176, 273);
             txtArea.Name = "txtArea";
             txtArea.Size = new Size(125, 27);
             txtArea.TabIndex = 10;
@@ -119,7 +127,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(61, 404);
+            label6.Location = new Point(113, 280);
             label6.Name = "label6";
             label6.Size = new Size(57, 20);
             label6.TabIndex = 11;
@@ -127,24 +135,29 @@
             // 
             // btnAddListing
             // 
-            btnAddListing.Location = new Point(531, 218);
+            btnAddListing.Cursor = Cursors.Hand;
+            btnAddListing.Location = new Point(437, 161);
             btnAddListing.Name = "btnAddListing";
-            btnAddListing.Size = new Size(94, 29);
+            btnAddListing.Size = new Size(144, 59);
             btnAddListing.TabIndex = 12;
-            btnAddListing.Text = "button1";
+            btnAddListing.Text = "Створити оголошення";
             btnAddListing.UseVisualStyleBackColor = true;
             btnAddListing.Click += btnAddListing_Click;
             // 
             // txtRentPrice
             // 
-            txtRentPrice.Location = new Point(181, 257);
+            txtRentPrice.BackColor = SystemColors.Menu;
+            txtRentPrice.Cursor = Cursors.Hand;
+            txtRentPrice.Location = new Point(176, 182);
             txtRentPrice.Name = "txtRentPrice";
             txtRentPrice.Size = new Size(125, 27);
             txtRentPrice.TabIndex = 13;
             // 
             // txtRoomCount
             // 
-            txtRoomCount.Location = new Point(181, 325);
+            txtRoomCount.BackColor = SystemColors.MenuBar;
+            txtRoomCount.Cursor = Cursors.Hand;
+            txtRoomCount.Location = new Point(176, 226);
             txtRoomCount.Name = "txtRoomCount";
             txtRoomCount.Size = new Size(125, 27);
             txtRoomCount.TabIndex = 14;
@@ -153,7 +166,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(902, 543);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(704, 338);
             Controls.Add(txtRoomCount);
             Controls.Add(txtRentPrice);
             Controls.Add(btnAddListing);
@@ -167,6 +181,7 @@
             Controls.Add(txtDescription);
             Controls.Add(label1);
             Controls.Add(txtTitle);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             Text = "MainForm";
             ResumeLayout(false);

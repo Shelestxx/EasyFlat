@@ -42,6 +42,7 @@
             // txtEmail
             // 
             txtEmail.BackColor = SystemColors.MenuBar;
+            txtEmail.Cursor = Cursors.Hand;
             txtEmail.Location = new Point(173, 68);
             txtEmail.Margin = new Padding(2);
             txtEmail.Name = "txtEmail";
@@ -51,6 +52,7 @@
             // txtPass
             // 
             txtPass.BackColor = SystemColors.MenuBar;
+            txtPass.Cursor = Cursors.Hand;
             txtPass.Location = new Point(173, 110);
             txtPass.Margin = new Padding(2);
             txtPass.Name = "txtPass";
@@ -80,6 +82,7 @@
             // btnRegister
             // 
             btnRegister.BackColor = SystemColors.AppWorkspace;
+            btnRegister.Cursor = Cursors.Hand;
             btnRegister.Location = new Point(173, 226);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(125, 54);
@@ -100,6 +103,7 @@
             // txtName
             // 
             txtName.BackColor = SystemColors.MenuBar;
+            txtName.Cursor = Cursors.Hand;
             txtName.Location = new Point(173, 22);
             txtName.Name = "txtName";
             txtName.Size = new Size(125, 27);
@@ -118,6 +122,7 @@
             // txtPhoneNumber
             // 
             txtPhoneNumber.BackColor = SystemColors.MenuBar;
+            txtPhoneNumber.Cursor = Cursors.Hand;
             txtPhoneNumber.Location = new Point(173, 154);
             txtPhoneNumber.Margin = new Padding(2, 2, 2, 2);
             txtPhoneNumber.Name = "txtPhoneNumber";
