@@ -44,7 +44,7 @@ namespace EasyFlat
                 string.IsNullOrWhiteSpace(location) || !decimal.TryParse(txtRentPrice.Text, out rentPrice) ||
                 !int.TryParse(txtRoomCount.Text, out roomCount) || !double.TryParse(txtArea.Text, out area))
             {
-                MessageBox.Show("Please fill in all fields correctly.");
+                MessageBox.Show("Будь ласка, заповніть всі поля правильно!");
                 return;
             }
 
@@ -55,7 +55,7 @@ namespace EasyFlat
             _listingRepository.Add(newListing);
             SaveListingsToFile();
 
-            MessageBox.Show("Listing added successfully.");
+            MessageBox.Show("Список додано успішно!");
             ClearFields();
 
             AllListingsForm newForm = new AllListingsForm(_currentUser); // Создаем экземпляр Form2  

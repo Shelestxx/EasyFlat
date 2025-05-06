@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EasyFlat.Classes;
@@ -28,7 +29,20 @@ namespace EasyFlat
 
             if (email == null || email == "" | pass == null || pass == "" | name == null || name == "" | phoneNumber == null || phoneNumber == "")
             {
-                MessageBox.Show("Please try again");
+                MessageBox.Show("Спробуйте знову");
+            }
+            // Валидация имени: только буквы
+            if (!Regex.IsMatch(name, @"^[a-zA-Zа-яА-Я]+$"))
+            {
+                MessageBox.Show("Ім'я має складатися з літер!");
+                return;
+            }
+
+            // Валидация номера телефона: только цифры
+            if (!Regex.IsMatch(phoneNumber, @"^\d+$"))
+            {
+                MessageBox.Show("Номер телефону має складатися з цифер!");
+                return;
             }
             UserManager userManager = new UserManager();
             int generatedId = userManager.GenerateUserId();    
@@ -37,12 +51,12 @@ namespace EasyFlat
 
             if (userManager.AddUser(user))
             {
-                MessageBox.Show("Registration successful!");
+                MessageBox.Show("Реєстрація пройшла успішно!");
                 this.Close(); 
             }
             else
             {
-                MessageBox.Show("User with this email already exists.");
+                MessageBox.Show("Користувач вже зареєстрований!");
             }
 
             AllListingsForm newForm = new AllListingsForm(user); // Создаем экземпляр Form2

@@ -26,7 +26,7 @@ namespace EasyFlat
 
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(pass))
             {
-                MessageBox.Show("Please try again");
+                MessageBox.Show("Спробуйте знову!");
                 return;
             }
 
@@ -34,11 +34,11 @@ namespace EasyFlat
             User user = userManager.LoginUser(email, pass);
             if (user == null)
             {
-                MessageBox.Show("Please try again");
+                MessageBox.Show("Спробуйте знову!");
                 return;
             }
 
-            MessageBox.Show($"Hello, {user.Name}");
+            MessageBox.Show($"Привіт, {user.Name}");
 
             // Передача поточного користувача в AllListingsForm
             AllListingsForm newForm = new AllListingsForm(user);  // Передаємо користувача
