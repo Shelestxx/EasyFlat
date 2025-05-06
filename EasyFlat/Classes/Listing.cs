@@ -1,11 +1,9 @@
 ﻿using EasyFlat.Interfaces;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace EasyFlat.Classes
 {
@@ -33,45 +31,22 @@ namespace EasyFlat.Classes
             OwnerID = ownerID;
             PublishDate = publishDate;
         }
-
-        // Конструктор без параметрів для десеріалізації JSON
-        public Listing() { }
     }
 
     public class ListingRepository : Repository<Listing>
     {
         private static ListingRepository _instance;
-
-        public static ListingRepository Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new ListingRepository();
-                }
-                return _instance;
-            }
-        }
-
         private const string ListingsFilePath = "../../listings.json";
 
-        public void Update(Listing updatedListing)
-        {
-            var existingListing = _entities.FirstOrDefault(l => l.ID == updatedListing.ID);
-            if (existingListing != null)
-            {
-                existingListing.Title = updatedListing.Title;
-                existingListing.Description = updatedListing.Description;
-                existingListing.Location = updatedListing.Location;
-                existingListing.RentPrice = updatedListing.RentPrice;
-                existingListing.RoomCount = updatedListing.RoomCount;
-                existingListing.Area = updatedListing.Area;
-                existingListing.OwnerID = updatedListing.OwnerID;
-                existingListing.PublishDate = updatedListing.PublishDate;
+        public static ListingRepository Instance => _instance ?? (_instance = new ListingRepository());
 
-                SaveToFile(); // Зберігаємо зміни у JSON
-            }
+        public void LoadFromFile()
+        {
+            if (!File.Exists(ListingsFilePath)) return;
+
+            var json = File.ReadAllText(ListingsFilePath);
+            var listings = JsonConvert.DeserializeObject<List<Listing>>(json);
+            _entities = listings ?? new List<Listing>();
         }
 
         public void SaveToFile()
@@ -80,14 +55,26 @@ namespace EasyFlat.Classes
             File.WriteAllText(ListingsFilePath, json);
         }
 
-        public void LoadFromFile()
+        public void Update(Listing updatedListing)
         {
-            if (!File.Exists(ListingsFilePath)) return;
+            var index = _entities.FindIndex(l => l.ID == updatedListing.ID);
+            if (index != -1)
+            {
+                _entities[index] = updatedListing;
+                SaveToFile();
+            }
+        }
 
-            var json = File.ReadAllText(ListingsFilePath);
-            var listings = JsonConvert.DeserializeObject<List<Listing>>(json);
-            _entities.Clear();
-            _entities.AddRange(listings);
+        public override void Remove(Listing listing)
+        {
+            base.Remove(listing);
+            SaveToFile();
+        }
+
+        public override void Add(Listing entity)
+        {
+            base.Add(entity);
+            SaveToFile();
         }
     }
 }

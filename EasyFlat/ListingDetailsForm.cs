@@ -15,6 +15,7 @@ namespace EasyFlat
             _listing = listing;
             _currentUser = currentUser;
             DisplayDetails();
+            MakeFieldsReadOnly(); // ← робимо всі поля тільки для читання
         }
 
         private void DisplayDetails()
@@ -26,6 +27,16 @@ namespace EasyFlat
             txtRoomCount.Text = _listing.RoomCount.ToString();
             txtArea.Text = _listing.Area.ToString();
             lblPublishDate.Text = _listing.PublishDate.ToShortDateString();
+        }
+
+        private void MakeFieldsReadOnly()
+        {
+            txtTitle.ReadOnly = true;
+            txtDescription.ReadOnly = true;
+            txtLocation.ReadOnly = true;
+            txtRentPrice.ReadOnly = true;
+            txtRoomCount.ReadOnly = true;
+            txtArea.ReadOnly = true;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -40,7 +51,7 @@ namespace EasyFlat
             if (editForm.ShowDialog() == DialogResult.OK)
             {
                 _listing = editForm.UpdatedListing;
-                ListingRepository.Instance.Update(_listing); // якщо використовується Singleton
+                ListingRepository.Instance.Update(_listing);
                 MessageBox.Show("Оголошення оновлено.");
                 DisplayDetails();
             }

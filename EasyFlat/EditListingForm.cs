@@ -7,7 +7,6 @@ namespace EasyFlat
     public partial class EditListingForm : Form
     {
         public Listing UpdatedListing { get; private set; }
-
         private readonly Listing _originalListing;
 
         public EditListingForm(Listing listing)

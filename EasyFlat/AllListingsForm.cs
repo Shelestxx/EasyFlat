@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using EasyFlat.Classes;
-using Newtonsoft.Json;
 
 namespace EasyFlat
 {
     public partial class AllListingsForm : Form
     {
-        private readonly ListingRepository _listingRepository = new ListingRepository();
-        private const string ListingsFilePath = "../../listings.json";
+        private readonly ListingRepository _listingRepository = ListingRepository.Instance;
         private User _currentUser;
 
         public AllListingsForm(User currentUser)
@@ -19,9 +15,10 @@ namespace EasyFlat
             InitializeComponent();
             _currentUser = currentUser;
             InitializeListView();
-            LoadListingsFromFile();
 
-            // Додаємо обробник події дабл-кліку
+            _listingRepository.LoadFromFile();
+            RefreshListView();
+
             listView1.MouseDoubleClick += ListView1_MouseDoubleClick;
         }
 
@@ -30,22 +27,14 @@ namespace EasyFlat
             listView1.View = View.Details;
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
-
            
         }
 
-        private void LoadListingsFromFile()
+        private void RefreshListView()
         {
-            if (!File.Exists(ListingsFilePath)) return;
-
-            string json = File.ReadAllText(ListingsFilePath);
-            var listings = JsonConvert.DeserializeObject<List<Listing>>(json);
-
-            foreach (var l in listings)
-            {
-                _listingRepository.Add(l);
+            listView1.Items.Clear();
+            foreach (var l in _listingRepository.GetAll())
                 AddListingToListView(l);
-            }
         }
 
         private void AddListingToListView(Listing l)
@@ -57,7 +46,6 @@ namespace EasyFlat
             item.SubItems.Add(l.RoomCount.ToString());
             item.SubItems.Add(l.Area.ToString());
             item.SubItems.Add(l.PublishDate.ToShortDateString());
-
             listView1.Items.Add(item);
         }
 
@@ -68,21 +56,17 @@ namespace EasyFlat
             this.Hide();
         }
 
-        // Обробник події дабл-кліку
         private void ListView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                var selectedItem = listView1.SelectedItems[0];
-                string title = selectedItem.Text;
-
-                var selectedListing = _listingRepository.GetAll()
-                    .FirstOrDefault(l => l.Title == title);
+                string title = listView1.SelectedItems[0].Text;
+                var selectedListing = _listingRepository.GetAll().FirstOrDefault(l => l.Title == title);
 
                 if (selectedListing != null)
                 {
                     ListingDetailsForm detailsForm = new ListingDetailsForm(selectedListing, _currentUser);
-
+                    detailsForm.FormClosed += (s, args) => RefreshListView();
                     detailsForm.Show();
                 }
                 else

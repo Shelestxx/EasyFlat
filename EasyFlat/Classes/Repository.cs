@@ -13,8 +13,8 @@ namespace EasyFlat.Classes
     {
         protected List<T> _entities = new List<T>();
 
-        public void Add(T entity) => _entities.Add(entity);
-        public void Remove(T entity) => _entities.Remove(entity);
+        public virtual void Add(T entity) => _entities.Add(entity);
+        public virtual void Remove(T entity) => _entities.Remove(entity);
         public T GetById(int id) => _entities.FirstOrDefault(e => e.ID == id);
         public IEnumerable<T> GetAll() => _entities;
         public IEnumerable<T> GetSorted() => _entities.OrderBy(e => e.ID);
