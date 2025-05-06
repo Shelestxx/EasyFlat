@@ -41,10 +41,11 @@
             // 
             // listView1
             // 
+            listView1.BackColor = SystemColors.WindowFrame;
             listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
-            listView1.Location = new Point(723, 40);
+            listView1.Location = new Point(723, -1);
             listView1.Name = "listView1";
-            listView1.Size = new Size(788, 588);
+            listView1.Size = new Size(788, 533);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
@@ -83,19 +84,23 @@
             // 
             // Listingbtn
             // 
-            Listingbtn.Location = new Point(180, 189);
+            Listingbtn.BackColor = SystemColors.ButtonFace;
+            Listingbtn.Cursor = Cursors.Hand;
+            Listingbtn.FlatAppearance.BorderColor = Color.FromArgb(128, 128, 255);
+            Listingbtn.Location = new Point(273, 214);
             Listingbtn.Name = "Listingbtn";
-            Listingbtn.Size = new Size(94, 29);
+            Listingbtn.Size = new Size(127, 70);
             Listingbtn.TabIndex = 1;
-            Listingbtn.Text = "button1";
-            Listingbtn.UseVisualStyleBackColor = true;
+            Listingbtn.Text = "Створити оголошення";
+            Listingbtn.UseVisualStyleBackColor = false;
             Listingbtn.Click += Listingbtn_Click;
             // 
             // AllListingsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1536, 689);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(1536, 524);
             Controls.Add(Listingbtn);
             Controls.Add(listView1);
             Name = "AllListingsForm";

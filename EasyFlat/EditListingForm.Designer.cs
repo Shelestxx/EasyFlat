@@ -40,70 +40,82 @@
             // 
             // txtTitle
             // 
-            txtTitle.Location = new Point(138, 56);
+            txtTitle.BackColor = SystemColors.InactiveCaption;
+            txtTitle.Location = new Point(238, 84);
             txtTitle.Name = "txtTitle";
             txtTitle.Size = new Size(125, 27);
             txtTitle.TabIndex = 0;
+            txtTitle.TextChanged += txtTitle_TextChanged;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(141, 116);
+            txtDescription.BackColor = SystemColors.InactiveCaption;
+            txtDescription.Location = new Point(238, 117);
             txtDescription.Name = "txtDescription";
             txtDescription.Size = new Size(125, 27);
             txtDescription.TabIndex = 1;
             // 
             // txtLocation
             // 
-            txtLocation.Location = new Point(141, 177);
+            txtLocation.BackColor = SystemColors.InactiveCaption;
+            txtLocation.Location = new Point(238, 150);
             txtLocation.Name = "txtLocation";
             txtLocation.Size = new Size(125, 27);
             txtLocation.TabIndex = 2;
             // 
             // txtRentPrice
             // 
-            txtRentPrice.Location = new Point(145, 231);
+            txtRentPrice.BackColor = SystemColors.InactiveCaption;
+            txtRentPrice.Location = new Point(238, 183);
             txtRentPrice.Name = "txtRentPrice";
             txtRentPrice.Size = new Size(125, 27);
             txtRentPrice.TabIndex = 3;
             // 
             // txtRoomCount
             // 
-            txtRoomCount.Location = new Point(141, 282);
+            txtRoomCount.BackColor = SystemColors.InactiveCaption;
+            txtRoomCount.Location = new Point(238, 216);
             txtRoomCount.Name = "txtRoomCount";
             txtRoomCount.Size = new Size(125, 27);
             txtRoomCount.TabIndex = 4;
             // 
             // txtArea
             // 
-            txtArea.Location = new Point(141, 341);
+            txtArea.BackColor = SystemColors.InactiveCaption;
+            txtArea.Location = new Point(238, 249);
             txtArea.Name = "txtArea";
             txtArea.Size = new Size(125, 27);
             txtArea.TabIndex = 5;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(455, 101);
+            btnSave.BackColor = SystemColors.ButtonFace;
+            btnSave.Cursor = Cursors.Hand;
+            btnSave.Location = new Point(406, 98);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(94, 29);
+            btnSave.Size = new Size(108, 65);
             btnSave.TabIndex = 6;
-            btnSave.Text = "save";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Text = "Зберегти";
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(453, 196);
+            btnCancel.BackColor = SystemColors.ButtonFace;
+            btnCancel.Cursor = Cursors.Hand;
+            btnCancel.Location = new Point(406, 183);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(94, 29);
+            btnCancel.Size = new Size(108, 65);
             btnCancel.TabIndex = 7;
-            btnCancel.Text = "cancle";
-            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Text = "Повернутись назад";
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
             // EditListingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
@@ -115,6 +127,7 @@
             Controls.Add(txtTitle);
             Name = "EditListingForm";
             Text = "EditListingForm";
+            Load += EditListingForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

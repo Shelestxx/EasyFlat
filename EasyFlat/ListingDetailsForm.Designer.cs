@@ -42,42 +42,48 @@
             // 
             // txtTitle
             // 
-            txtTitle.Location = new Point(200, 73);
+            txtTitle.BackColor = SystemColors.InactiveCaption;
+            txtTitle.Location = new Point(205, 73);
             txtTitle.Name = "txtTitle";
             txtTitle.Size = new Size(125, 27);
             txtTitle.TabIndex = 0;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(201, 122);
+            txtDescription.BackColor = SystemColors.InactiveCaption;
+            txtDescription.Location = new Point(205, 106);
             txtDescription.Name = "txtDescription";
             txtDescription.Size = new Size(125, 27);
             txtDescription.TabIndex = 1;
             // 
             // txtLocation
             // 
-            txtLocation.Location = new Point(202, 173);
+            txtLocation.BackColor = SystemColors.InactiveCaption;
+            txtLocation.Location = new Point(205, 139);
             txtLocation.Name = "txtLocation";
             txtLocation.Size = new Size(125, 27);
             txtLocation.TabIndex = 2;
             // 
             // txtRentPrice
             // 
-            txtRentPrice.Location = new Point(203, 222);
+            txtRentPrice.BackColor = SystemColors.InactiveCaption;
+            txtRentPrice.Location = new Point(205, 172);
             txtRentPrice.Name = "txtRentPrice";
             txtRentPrice.Size = new Size(125, 27);
             txtRentPrice.TabIndex = 3;
             // 
             // txtRoomCount
             // 
-            txtRoomCount.Location = new Point(204, 279);
+            txtRoomCount.BackColor = SystemColors.InactiveCaption;
+            txtRoomCount.Location = new Point(205, 205);
             txtRoomCount.Name = "txtRoomCount";
             txtRoomCount.Size = new Size(125, 27);
             txtRoomCount.TabIndex = 4;
             // 
             // txtArea
             // 
-            txtArea.Location = new Point(205, 334);
+            txtArea.BackColor = SystemColors.InactiveCaption;
+            txtArea.Location = new Point(205, 238);
             txtArea.Name = "txtArea";
             txtArea.Size = new Size(125, 27);
             txtArea.TabIndex = 5;
@@ -85,7 +91,7 @@
             // lblPublishDate
             // 
             lblPublishDate.AutoSize = true;
-            lblPublishDate.Location = new Point(200, 376);
+            lblPublishDate.Location = new Point(205, 276);
             lblPublishDate.Name = "lblPublishDate";
             lblPublishDate.Size = new Size(50, 20);
             lblPublishDate.TabIndex = 6;
@@ -93,38 +99,45 @@
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(495, 123);
+            btnEdit.BackColor = SystemColors.ButtonFace;
+            btnEdit.Cursor = Cursors.Hand;
+            btnEdit.Location = new Point(499, 104);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(94, 29);
+            btnEdit.Size = new Size(112, 29);
             btnEdit.TabIndex = 7;
-            btnEdit.Text = "edit";
-            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Text = "Змінити";
+            btnEdit.UseVisualStyleBackColor = false;
             btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(499, 191);
+            btnDelete.BackColor = SystemColors.ButtonFace;
+            btnDelete.Cursor = Cursors.Hand;
+            btnDelete.Location = new Point(499, 139);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(94, 29);
+            btnDelete.Size = new Size(112, 29);
             btnDelete.TabIndex = 8;
-            btnDelete.Text = "del";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Text = "Видалити";
+            btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // btnClose
             // 
-            btnClose.Location = new Point(497, 276);
+            btnClose.BackColor = SystemColors.ButtonFace;
+            btnClose.Cursor = Cursors.Hand;
+            btnClose.Location = new Point(499, 174);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(94, 29);
+            btnClose.Size = new Size(112, 58);
             btnClose.TabIndex = 9;
-            btnClose.Text = "close";
-            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Text = "повернутись назад";
+            btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
             // ListingDetailsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(btnClose);
             Controls.Add(btnDelete);

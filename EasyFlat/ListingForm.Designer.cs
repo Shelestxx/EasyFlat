@@ -45,7 +45,7 @@
             // 
             // txtTitle
             // 
-            txtTitle.BackColor = SystemColors.MenuBar;
+            txtTitle.BackColor = SystemColors.InactiveCaption;
             txtTitle.Cursor = Cursors.Hand;
             txtTitle.Location = new Point(176, 44);
             txtTitle.Name = "txtTitle";
@@ -63,7 +63,7 @@
             // 
             // txtDescription
             // 
-            txtDescription.BackColor = SystemColors.MenuBar;
+            txtDescription.BackColor = SystemColors.InactiveCaption;
             txtDescription.Cursor = Cursors.Hand;
             txtDescription.Location = new Point(176, 91);
             txtDescription.Name = "txtDescription";
@@ -81,7 +81,7 @@
             // 
             // txtLocation
             // 
-            txtLocation.BackColor = SystemColors.MenuBar;
+            txtLocation.BackColor = SystemColors.InactiveCaption;
             txtLocation.Cursor = Cursors.Hand;
             txtLocation.Location = new Point(176, 137);
             txtLocation.Name = "txtLocation";
@@ -117,7 +117,7 @@
             // 
             // txtArea
             // 
-            txtArea.BackColor = SystemColors.MenuBar;
+            txtArea.BackColor = SystemColors.InactiveCaption;
             txtArea.Cursor = Cursors.Hand;
             txtArea.Location = new Point(176, 273);
             txtArea.Name = "txtArea";
@@ -135,18 +135,19 @@
             // 
             // btnAddListing
             // 
+            btnAddListing.BackColor = SystemColors.ButtonFace;
             btnAddListing.Cursor = Cursors.Hand;
             btnAddListing.Location = new Point(437, 161);
             btnAddListing.Name = "btnAddListing";
             btnAddListing.Size = new Size(144, 59);
             btnAddListing.TabIndex = 12;
             btnAddListing.Text = "Створити оголошення";
-            btnAddListing.UseVisualStyleBackColor = true;
+            btnAddListing.UseVisualStyleBackColor = false;
             btnAddListing.Click += btnAddListing_Click;
             // 
             // txtRentPrice
             // 
-            txtRentPrice.BackColor = SystemColors.Menu;
+            txtRentPrice.BackColor = SystemColors.InactiveCaption;
             txtRentPrice.Cursor = Cursors.Hand;
             txtRentPrice.Location = new Point(176, 182);
             txtRentPrice.Name = "txtRentPrice";
@@ -155,14 +156,14 @@
             // 
             // txtRoomCount
             // 
-            txtRoomCount.BackColor = SystemColors.MenuBar;
+            txtRoomCount.BackColor = SystemColors.InactiveCaption;
             txtRoomCount.Cursor = Cursors.Hand;
             txtRoomCount.Location = new Point(176, 226);
             txtRoomCount.Name = "txtRoomCount";
             txtRoomCount.Size = new Size(125, 27);
             txtRoomCount.TabIndex = 14;
             // 
-            // MainForm
+            // ListingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -182,7 +183,7 @@
             Controls.Add(label1);
             Controls.Add(txtTitle);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "MainForm";
+            Name = "ListingForm";
             Text = "MainForm";
             ResumeLayout(false);
             PerformLayout();

@@ -41,7 +41,7 @@
             // 
             // txtEmail
             // 
-            txtEmail.BackColor = SystemColors.MenuBar;
+            txtEmail.BackColor = SystemColors.InactiveCaption;
             txtEmail.Cursor = Cursors.Hand;
             txtEmail.Location = new Point(173, 68);
             txtEmail.Margin = new Padding(2);
@@ -51,7 +51,7 @@
             // 
             // txtPass
             // 
-            txtPass.BackColor = SystemColors.MenuBar;
+            txtPass.BackColor = SystemColors.InactiveCaption;
             txtPass.Cursor = Cursors.Hand;
             txtPass.Location = new Point(173, 110);
             txtPass.Margin = new Padding(2);
@@ -102,7 +102,7 @@
             // 
             // txtName
             // 
-            txtName.BackColor = SystemColors.MenuBar;
+            txtName.BackColor = SystemColors.InactiveCaption;
             txtName.Cursor = Cursors.Hand;
             txtName.Location = new Point(173, 22);
             txtName.Name = "txtName";
@@ -121,10 +121,10 @@
             // 
             // txtPhoneNumber
             // 
-            txtPhoneNumber.BackColor = SystemColors.MenuBar;
+            txtPhoneNumber.BackColor = SystemColors.InactiveCaption;
             txtPhoneNumber.Cursor = Cursors.Hand;
             txtPhoneNumber.Location = new Point(173, 154);
-            txtPhoneNumber.Margin = new Padding(2, 2, 2, 2);
+            txtPhoneNumber.Margin = new Padding(2);
             txtPhoneNumber.Name = "txtPhoneNumber";
             txtPhoneNumber.Size = new Size(125, 27);
             txtPhoneNumber.TabIndex = 8;

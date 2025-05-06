@@ -57,5 +57,15 @@ namespace EasyFlat
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+        private void EditListingForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTitle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
