@@ -27,7 +27,7 @@ namespace EasyFlat
             listView1.View = View.Details;
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
-           
+
         }
 
         private void RefreshListView()
@@ -74,6 +74,11 @@ namespace EasyFlat
                     MessageBox.Show("Не вдалося знайти вибране оголошення.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void AllListingsForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

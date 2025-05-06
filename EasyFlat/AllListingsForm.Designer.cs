@@ -41,7 +41,7 @@
             // 
             // listView1
             // 
-            listView1.BackColor = SystemColors.WindowFrame;
+            listView1.BackColor = SystemColors.InactiveCaption;
             listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
             listView1.Location = new Point(723, -1);
             listView1.Name = "listView1";
@@ -100,11 +100,12 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1536, 524);
+            ClientSize = new Size(1500, 524);
             Controls.Add(Listingbtn);
             Controls.Add(listView1);
             Name = "AllListingsForm";
             Text = "AllListingsForm";
+            Load += AllListingsForm_Load;
             ResumeLayout(false);
         }
 
