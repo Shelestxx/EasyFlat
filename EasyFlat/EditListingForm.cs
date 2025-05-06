@@ -14,6 +14,10 @@ namespace EasyFlat
             InitializeComponent();
             _originalListing = listing;
             FillFields();
+
+            txtRentPrice.KeyPress += txtRentPrice_KeyPress;
+            txtRoomCount.KeyPress += txtRoomCount_KeyPress;
+            txtArea.KeyPress += txtArea_KeyPress;
         }
 
         private void FillFields()
@@ -58,12 +62,49 @@ namespace EasyFlat
             Close();
         }
 
-        private void EditListingForm_Load(object sender, EventArgs e)
+        private void txtRentPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                MessageBox.Show("У поле 'Ціна' можна вводити лише цифри.");
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtRoomCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("У поле 'Кількість кімнат' можна вводити лише цифри.");
+                e.Handled = true;
+            }
+        }
+
+        private void txtArea_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                MessageBox.Show("У поле 'Площа' можна вводити лише цифри.");
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void txtTitle_TextChanged(object sender, EventArgs e)
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }

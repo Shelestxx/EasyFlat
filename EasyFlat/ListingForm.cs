@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
-using EasyFlat.Classes;
-
+﻿using EasyFlat.Classes;
+using EasyFlat;
 using Newtonsoft.Json;
 using static System.Windows.Forms.MonthCalendar;
-
 namespace EasyFlat
 {
     public partial class ListingForm : Form
@@ -17,11 +11,52 @@ namespace EasyFlat
 
         private const string ListingsFilePath = "../../listings.json";
 
-        public ListingForm(User currentUser) 
+        public ListingForm(User currentUser)
         {
             InitializeComponent();
             _currentUser = currentUser;
             LoadListingsFromFile();
+
+            txtRentPrice.KeyPress += txtRentPrice_KeyPress;
+            txtRoomCount.KeyPress += txtRoomCount_KeyPress;
+            txtArea.KeyPress += txtArea_KeyPress;
+        }
+
+        private void txtRentPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                MessageBox.Show("У поле 'Ціна' можна вводити лише цифри.");
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtRoomCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                MessageBox.Show("У поле 'Кількість кімнат' можна вводити лише цифри.");
+                e.Handled = true;
+            }
+        }
+
+        private void txtArea_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                MessageBox.Show("У поле 'Площа' можна вводити лише цифри.");
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
+            }
         }
 
         private void btnAddListing_Click(object sender, EventArgs e)
@@ -58,11 +93,10 @@ namespace EasyFlat
             MessageBox.Show("Список додано успішно!");
             ClearFields();
 
-            AllListingsForm newForm = new AllListingsForm(_currentUser); // Создаем экземпляр Form2  
-            newForm.Show(); // Открываем Form2
-            this.Hide(); // Скрываем Form1 (чтобы можно было вернуться)
+            AllListingsForm newForm = new AllListingsForm(_currentUser);
+            newForm.Show();
+            this.Hide();
         }
-
 
         private void LoadListingsFromFile()
         {
