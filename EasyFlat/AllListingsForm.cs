@@ -14,20 +14,24 @@ namespace EasyFlat
         private const string ListingsFilePath = "../../listings.json";
         private User _currentUser;
 
-       public AllListingsForm(User currentUser)
-{
-    InitializeComponent();
-    _currentUser = currentUser;
-    InitializeListView();
-    LoadListingsFromFile();
-}
+        public AllListingsForm(User currentUser)
+        {
+            InitializeComponent();
+            _currentUser = currentUser;
+            InitializeListView();
+            LoadListingsFromFile();
 
+            // Додаємо обробник події дабл-кліку
+            listView1.MouseDoubleClick += ListView1_MouseDoubleClick;
+        }
 
-        private void InitializeListView() 
+        private void InitializeListView()
         {
             listView1.View = View.Details;
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
+
+           
         }
 
         private void LoadListingsFromFile()
@@ -43,7 +47,6 @@ namespace EasyFlat
                 AddListingToListView(l);
             }
         }
-
 
         private void AddListingToListView(Listing l)
         {
@@ -61,13 +64,32 @@ namespace EasyFlat
         private void Listingbtn_Click(object sender, EventArgs e)
         {
             ListingForm listingForm = new ListingForm(_currentUser);
-
-            // Відкриття ListingForm
             listingForm.Show();
+            this.Hide();
+        }
 
-            // Закриття поточної форми (якщо потрібно)
-            this.Hide(); // або this.Close() якщо хочете закрити поточну форму
+        // Обробник події дабл-кліку
+        private void ListView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                var selectedItem = listView1.SelectedItems[0];
+                string title = selectedItem.Text;
 
+                var selectedListing = _listingRepository.GetAll()
+                    .FirstOrDefault(l => l.Title == title);
+
+                if (selectedListing != null)
+                {
+                    ListingDetailsForm detailsForm = new ListingDetailsForm(selectedListing, _currentUser);
+
+                    detailsForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Не вдалося знайти вибране оголошення.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
