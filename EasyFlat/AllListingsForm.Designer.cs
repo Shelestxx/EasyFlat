@@ -42,6 +42,10 @@
             numRoomsFrom = new NumericUpDown();
             numRoomsTo = new NumericUpDown();
             btnSearch = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)numPriceFrom).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPriceTo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numRoomsFrom).BeginInit();
@@ -96,7 +100,7 @@
             Listingbtn.BackColor = SystemColors.ButtonFace;
             Listingbtn.Cursor = Cursors.Hand;
             Listingbtn.FlatAppearance.BorderColor = Color.FromArgb(128, 128, 255);
-            Listingbtn.Location = new Point(75, 210);
+            Listingbtn.Location = new Point(523, 255);
             Listingbtn.Name = "Listingbtn";
             Listingbtn.Size = new Size(127, 70);
             Listingbtn.TabIndex = 1;
@@ -106,7 +110,7 @@
             // 
             // numPriceFrom
             // 
-            numPriceFrom.Location = new Point(290, 81);
+            numPriceFrom.Location = new Point(12, 40);
             numPriceFrom.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             numPriceFrom.Name = "numPriceFrom";
             numPriceFrom.Size = new Size(150, 27);
@@ -114,7 +118,7 @@
             // 
             // numPriceTo
             // 
-            numPriceTo.Location = new Point(290, 137);
+            numPriceTo.Location = new Point(12, 96);
             numPriceTo.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             numPriceTo.Name = "numPriceTo";
             numPriceTo.Size = new Size(150, 27);
@@ -122,7 +126,7 @@
             // 
             // numRoomsFrom
             // 
-            numRoomsFrom.Location = new Point(538, 81);
+            numRoomsFrom.Location = new Point(191, 40);
             numRoomsFrom.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             numRoomsFrom.Name = "numRoomsFrom";
             numRoomsFrom.Size = new Size(150, 27);
@@ -130,7 +134,7 @@
             // 
             // numRoomsTo
             // 
-            numRoomsTo.Location = new Point(538, 137);
+            numRoomsTo.Location = new Point(191, 96);
             numRoomsTo.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             numRoomsTo.Name = "numRoomsTo";
             numRoomsTo.Size = new Size(150, 27);
@@ -138,13 +142,50 @@
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(434, 234);
+            btnSearch.Location = new Point(113, 168);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(94, 29);
+            btnSearch.Size = new Size(136, 56);
             btnSearch.TabIndex = 6;
-            btnSearch.Text = "button1";
+            btnSearch.Text = "Пошук за параметрами";
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 17);
+            label1.Name = "label1";
+            label1.Size = new Size(68, 20);
+            label1.TabIndex = 7;
+            label1.Text = "Ціна від:";
+            label1.Click += label1_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 73);
+            label2.Name = "label2";
+            label2.Size = new Size(65, 20);
+            label2.TabIndex = 8;
+            label2.Text = "Ціна до:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(191, 17);
+            label3.Name = "label3";
+            label3.Size = new Size(146, 20);
+            label3.TabIndex = 9;
+            label3.Text = "Кількість кімнат від:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(191, 73);
+            label4.Name = "label4";
+            label4.Size = new Size(147, 20);
+            label4.TabIndex = 10;
+            label4.Text = "Кількість кіімнат до:";
             // 
             // AllListingsForm
             // 
@@ -152,6 +193,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1500, 524);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(btnSearch);
             Controls.Add(numRoomsTo);
             Controls.Add(numRoomsFrom);
@@ -167,6 +212,7 @@
             ((System.ComponentModel.ISupportInitialize)numRoomsFrom).EndInit();
             ((System.ComponentModel.ISupportInitialize)numRoomsTo).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -185,5 +231,9 @@
         private NumericUpDown numRoomsFrom;
         private NumericUpDown numRoomsTo;
         private Button btnSearch;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
     }
 }
