@@ -80,5 +80,27 @@ namespace EasyFlat
         {
 
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            decimal priceFrom = numPriceFrom.Value;
+            decimal priceTo = numPriceTo.Value;
+            int roomsFrom = (int)numRoomsFrom.Value;
+            int roomsTo = (int)numRoomsTo.Value;
+
+            var filteredListings = _listingRepository.GetAll()
+                .Where(l =>
+                    (priceFrom == 0 || l.RentPrice >= priceFrom) &&
+                    (priceTo == 0 || l.RentPrice <= priceTo) &&
+                    (roomsFrom == 0 || l.RoomCount >= roomsFrom) &&
+                    (roomsTo == 0 || l.RoomCount <= roomsTo)
+                )
+                .ToList();
+
+            listView1.Items.Clear();
+            foreach (var listing in filteredListings)
+                AddListingToListView(listing);
+        }
+
     }
 }

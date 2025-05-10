@@ -37,6 +37,15 @@
             columnHeader6 = new ColumnHeader();
             columnHeader7 = new ColumnHeader();
             Listingbtn = new Button();
+            numPriceFrom = new NumericUpDown();
+            numPriceTo = new NumericUpDown();
+            numRoomsFrom = new NumericUpDown();
+            numRoomsTo = new NumericUpDown();
+            btnSearch = new Button();
+            ((System.ComponentModel.ISupportInitialize)numPriceFrom).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPriceTo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numRoomsFrom).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numRoomsTo).BeginInit();
             SuspendLayout();
             // 
             // listView1
@@ -87,7 +96,7 @@
             Listingbtn.BackColor = SystemColors.ButtonFace;
             Listingbtn.Cursor = Cursors.Hand;
             Listingbtn.FlatAppearance.BorderColor = Color.FromArgb(128, 128, 255);
-            Listingbtn.Location = new Point(273, 214);
+            Listingbtn.Location = new Point(75, 210);
             Listingbtn.Name = "Listingbtn";
             Listingbtn.Size = new Size(127, 70);
             Listingbtn.TabIndex = 1;
@@ -95,17 +104,68 @@
             Listingbtn.UseVisualStyleBackColor = false;
             Listingbtn.Click += Listingbtn_Click;
             // 
+            // numPriceFrom
+            // 
+            numPriceFrom.Location = new Point(290, 81);
+            numPriceFrom.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            numPriceFrom.Name = "numPriceFrom";
+            numPriceFrom.Size = new Size(150, 27);
+            numPriceFrom.TabIndex = 2;
+            // 
+            // numPriceTo
+            // 
+            numPriceTo.Location = new Point(290, 137);
+            numPriceTo.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            numPriceTo.Name = "numPriceTo";
+            numPriceTo.Size = new Size(150, 27);
+            numPriceTo.TabIndex = 3;
+            // 
+            // numRoomsFrom
+            // 
+            numRoomsFrom.Location = new Point(538, 81);
+            numRoomsFrom.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numRoomsFrom.Name = "numRoomsFrom";
+            numRoomsFrom.Size = new Size(150, 27);
+            numRoomsFrom.TabIndex = 4;
+            // 
+            // numRoomsTo
+            // 
+            numRoomsTo.Location = new Point(538, 137);
+            numRoomsTo.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numRoomsTo.Name = "numRoomsTo";
+            numRoomsTo.Size = new Size(150, 27);
+            numRoomsTo.TabIndex = 5;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(434, 234);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(94, 29);
+            btnSearch.TabIndex = 6;
+            btnSearch.Text = "button1";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            // 
             // AllListingsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1500, 524);
+            Controls.Add(btnSearch);
+            Controls.Add(numRoomsTo);
+            Controls.Add(numRoomsFrom);
+            Controls.Add(numPriceTo);
+            Controls.Add(numPriceFrom);
             Controls.Add(Listingbtn);
             Controls.Add(listView1);
             Name = "AllListingsForm";
             Text = "AllListingsForm";
             Load += AllListingsForm_Load;
+            ((System.ComponentModel.ISupportInitialize)numPriceFrom).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPriceTo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numRoomsFrom).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numRoomsTo).EndInit();
             ResumeLayout(false);
         }
 
@@ -120,5 +180,10 @@
         private ColumnHeader columnHeader6;
         private ColumnHeader columnHeader7;
         private Button Listingbtn;
+        private NumericUpDown numPriceFrom;
+        private NumericUpDown numPriceTo;
+        private NumericUpDown numRoomsFrom;
+        private NumericUpDown numRoomsTo;
+        private Button btnSearch;
     }
 }
