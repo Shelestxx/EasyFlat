@@ -28,12 +28,14 @@ namespace EasyFlat
             txtRentPrice.Text = _originalListing.RentPrice.ToString();
             txtRoomCount.Text = _originalListing.RoomCount.ToString();
             txtArea.Text = _originalListing.Area.ToString();
+            txtPhoneNumber.Text = _originalListing.PhoneNumber;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtTitle.Text) || string.IsNullOrWhiteSpace(txtDescription.Text) ||
-                string.IsNullOrWhiteSpace(txtLocation.Text) || !decimal.TryParse(txtRentPrice.Text, out decimal rentPrice) ||
+                string.IsNullOrWhiteSpace(txtLocation.Text) || string.IsNullOrWhiteSpace(txtPhoneNumber.Text) ||
+                !decimal.TryParse(txtRentPrice.Text, out decimal rentPrice) ||
                 !int.TryParse(txtRoomCount.Text, out int roomCount) || !double.TryParse(txtArea.Text, out double area))
             {
                 MessageBox.Show("Будь ласка, заповніть всі поля коректно.");
@@ -49,7 +51,8 @@ namespace EasyFlat
                 roomCount,
                 area,
                 _originalListing.OwnerID,
-                _originalListing.PublishDate
+                _originalListing.PublishDate,
+                txtPhoneNumber.Text
             );
 
             DialogResult = DialogResult.OK;
@@ -69,11 +72,8 @@ namespace EasyFlat
                 MessageBox.Show("У поле 'Ціна' можна вводити лише цифри.");
                 e.Handled = true;
             }
-
             if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
-            {
                 e.Handled = true;
-            }
         }
 
         private void txtRoomCount_KeyPress(object sender, KeyPressEventArgs e)
@@ -92,21 +92,8 @@ namespace EasyFlat
                 MessageBox.Show("У поле 'Площа' можна вводити лише цифри.");
                 e.Handled = true;
             }
-
             if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
-            {
                 e.Handled = true;
-            }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

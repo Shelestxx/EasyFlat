@@ -44,6 +44,8 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
+            label7 = new Label();
+            txtPhoneNumber = new TextBox();
             SuspendLayout();
             // 
             // txtTitle
@@ -97,7 +99,7 @@
             // lblPublishDate
             // 
             lblPublishDate.AutoSize = true;
-            lblPublishDate.Location = new Point(205, 276);
+            lblPublishDate.Location = new Point(205, 303);
             lblPublishDate.Name = "lblPublishDate";
             lblPublishDate.Size = new Size(50, 20);
             lblPublishDate.TabIndex = 6;
@@ -193,12 +195,31 @@
             label6.TabIndex = 15;
             label6.Text = "Площа";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(73, 280);
+            label7.Name = "label7";
+            label7.Size = new Size(126, 20);
+            label7.TabIndex = 16;
+            label7.Text = "Номер телефону";
+            // 
+            // txtPhoneNumber
+            // 
+            txtPhoneNumber.BackColor = SystemColors.InactiveCaption;
+            txtPhoneNumber.Location = new Point(205, 273);
+            txtPhoneNumber.Name = "txtPhoneNumber";
+            txtPhoneNumber.Size = new Size(125, 27);
+            txtPhoneNumber.TabIndex = 17;
+            // 
             // ListingDetailsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(txtPhoneNumber);
+            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -239,5 +260,7 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private Label label7;
+        private TextBox txtPhoneNumber;
     }
 }

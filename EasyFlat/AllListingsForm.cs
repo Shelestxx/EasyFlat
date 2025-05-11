@@ -46,9 +46,9 @@ namespace EasyFlat
             item.SubItems.Add(l.RoomCount.ToString());
             item.SubItems.Add(l.Area.ToString());
             item.SubItems.Add(l.PublishDate.ToShortDateString());
+            item.SubItems.Add(l.PhoneNumber);
             listView1.Items.Add(item);
         }
-
         private void Listingbtn_Click(object sender, EventArgs e)
         {
             ListingForm listingForm = new ListingForm(_currentUser);

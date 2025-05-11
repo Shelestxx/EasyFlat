@@ -15,7 +15,7 @@ namespace EasyFlat
             _listing = listing;
             _currentUser = currentUser;
             DisplayDetails();
-            MakeFieldsReadOnly(); // ← робимо всі поля тільки для читання
+            MakeFieldsReadOnly();
         }
 
         private void DisplayDetails()
@@ -27,6 +27,7 @@ namespace EasyFlat
             txtRoomCount.Text = _listing.RoomCount.ToString();
             txtArea.Text = _listing.Area.ToString();
             lblPublishDate.Text = _listing.PublishDate.ToShortDateString();
+            txtPhoneNumber.Text = _listing.PhoneNumber;
         }
 
         private void MakeFieldsReadOnly()
@@ -37,6 +38,7 @@ namespace EasyFlat
             txtRentPrice.ReadOnly = true;
             txtRoomCount.ReadOnly = true;
             txtArea.ReadOnly = true;
+            txtPhoneNumber.ReadOnly = true;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

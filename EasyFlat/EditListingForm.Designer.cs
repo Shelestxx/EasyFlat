@@ -42,6 +42,8 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
+            label7 = new Label();
+            txtPhoneNumber = new TextBox();
             SuspendLayout();
             // 
             // txtTitle
@@ -124,7 +126,7 @@
             label1.Size = new Size(142, 20);
             label1.TabIndex = 8;
             label1.Text = "Назва оголошення";
-            label1.Click += label1_Click;
+
             // 
             // label2
             // 
@@ -161,7 +163,7 @@
             label5.Size = new Size(119, 20);
             label5.TabIndex = 12;
             label5.Text = "Кількість кімнат";
-            label5.Click += label5_Click;
+
             // 
             // label6
             // 
@@ -172,12 +174,31 @@
             label6.TabIndex = 13;
             label6.Text = "Площа";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(106, 289);
+            label7.Name = "label7";
+            label7.Size = new Size(126, 20);
+            label7.TabIndex = 14;
+            label7.Text = "Номер телефону";
+            // 
+            // txtPhoneNumber
+            // 
+            txtPhoneNumber.BackColor = SystemColors.InactiveCaption;
+            txtPhoneNumber.Location = new Point(238, 282);
+            txtPhoneNumber.Name = "txtPhoneNumber";
+            txtPhoneNumber.Size = new Size(125, 27);
+            txtPhoneNumber.TabIndex = 15;
+            // 
             // EditListingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(txtPhoneNumber);
+            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -214,5 +235,7 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private Label label7;
+        private TextBox txtPhoneNumber;
     }
 }

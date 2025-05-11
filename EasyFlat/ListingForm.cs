@@ -1,7 +1,11 @@
 ﻿using EasyFlat.Classes;
-using EasyFlat;
 using Newtonsoft.Json;
-using static System.Windows.Forms.MonthCalendar;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+
 namespace EasyFlat
 {
     public partial class ListingForm : Form
@@ -29,11 +33,8 @@ namespace EasyFlat
                 MessageBox.Show("У поле 'Ціна' можна вводити лише цифри.");
                 e.Handled = true;
             }
-
             if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
-            {
                 e.Handled = true;
-            }
         }
 
         private void txtRoomCount_KeyPress(object sender, KeyPressEventArgs e)
@@ -52,11 +53,8 @@ namespace EasyFlat
                 MessageBox.Show("У поле 'Площа' можна вводити лише цифри.");
                 e.Handled = true;
             }
-
             if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
-            {
                 e.Handled = true;
-            }
         }
 
         private void btnAddListing_Click(object sender, EventArgs e)
@@ -70,11 +68,17 @@ namespace EasyFlat
             string title = txtTitle.Text;
             string description = txtDescription.Text;
             string location = txtLocation.Text;
+            string phoneNumber = txtPhoneNumber.Text;
             decimal rentPrice;
             int roomCount;
             double area;
             DateTime publishDate = DateTime.Now;
 
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+            {
+                MessageBox.Show("Будь ласка, введіть номер телефону.");
+                return;
+            }
             if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(description) ||
                 string.IsNullOrWhiteSpace(location) || !decimal.TryParse(txtRentPrice.Text, out rentPrice) ||
                 !int.TryParse(txtRoomCount.Text, out roomCount) || !double.TryParse(txtArea.Text, out area))
@@ -86,7 +90,7 @@ namespace EasyFlat
             int newId = _listingRepository.GetAll().Any() ? _listingRepository.GetAll().Max(l => l.ID) + 1 : 1;
             int ownerId = _currentUser.ID;
 
-            Listing newListing = new Listing(newId, title, description, location, rentPrice, roomCount, area, ownerId, publishDate);
+            Listing newListing = new Listing(newId, title, description, location, rentPrice, roomCount, area, ownerId, publishDate, phoneNumber);
             _listingRepository.Add(newListing);
             SaveListingsToFile();
 
@@ -125,6 +129,7 @@ namespace EasyFlat
             txtRentPrice.Clear();
             txtRoomCount.Clear();
             txtArea.Clear();
+            txtPhoneNumber.Clear();
         }
     }
 }
