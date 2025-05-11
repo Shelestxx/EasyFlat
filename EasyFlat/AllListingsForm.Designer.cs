@@ -46,6 +46,7 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
+            columnHeader8 = new ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)numPriceFrom).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPriceTo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numRoomsFrom).BeginInit();
@@ -55,7 +56,7 @@
             // listView1
             // 
             listView1.BackColor = SystemColors.InactiveCaption;
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7, columnHeader8 });
             listView1.Location = new Point(723, -1);
             listView1.Name = "listView1";
             listView1.Size = new Size(788, 533);
@@ -187,6 +188,11 @@
             label4.TabIndex = 10;
             label4.Text = "Кількість кіімнат до:";
             // 
+            // columnHeader8
+            // 
+            columnHeader8.Text = "Тел. номер";
+            columnHeader8.Width = 120;
+            // 
             // AllListingsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -235,5 +241,6 @@
         private Label label2;
         private Label label3;
         private Label label4;
+        private ColumnHeader columnHeader8;
     }
 }

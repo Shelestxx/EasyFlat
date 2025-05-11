@@ -18,8 +18,9 @@ namespace EasyFlat.Classes
         public double Area { get; set; }
         public int OwnerID { get; set; }
         public DateTime PublishDate { get; set; }
+        public string PhoneNumber { get; set; }
 
-        public Listing(int id, string title, string description, string location, decimal rentPrice, int roomCount, double area, int ownerID, DateTime publishDate)
+        public Listing(int id, string phonenumber, string title, string description, string location, decimal rentPrice, int roomCount, double area, int ownerID, DateTime publishDate)
         {
             ID = id;
             Title = title;
@@ -30,6 +31,7 @@ namespace EasyFlat.Classes
             Area = area;
             OwnerID = ownerID;
             PublishDate = publishDate;
+            PhoneNumber = phonenumber;
         }
     }
 
