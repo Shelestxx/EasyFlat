@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using BCrypt.Net;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EasyFlat.Classes
 {
@@ -14,32 +17,56 @@ namespace EasyFlat.Classes
 
     public class User : IEntity
     {
+        public void SetPassword(string password)
+        {
+            this.PasswordHash = BCrypt.Net.BCrypt.HashPassword(password);
+        }
         public int ID { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Pass { get; set; }
-        public string PhoneNumber { get; set; }
-        public UserType Type { get; set; }
-        public string PasswordHash { get; private set; }
 
-        public User(int id, string name, string email, string pass, string phoneNumber, UserType type)
+        [MaxLength(100)]
+        public string Name { get; set; }
+
+        [MaxLength(150)]
+        public string Email { get; set; }
+
+        // Це було порожнє місце — видалив зайве
+
+        [MaxLength(20)]
+        public string PhoneNumber { get; set; }
+
+        public UserType Type { get; set; }
+
+        [MaxLength(255)]
+        public string PasswordHash { get; set; }
+
+        
+
+        public virtual List<Listing> Listings { get; set; } = new List<Listing>();
+
+        public User() { }
+
+        public User(int id, string name, string email, string phoneNumber, UserType type, string passwordHash)
         {
             ID = id;
             Name = name;
             Email = email;
-            Pass = pass;
             PhoneNumber = phoneNumber;
             Type = type;
+            PasswordHash = passwordHash;
         }
     }
 
     public class PropertyUser : User // Універсальний користувач
     {
+        [NotMapped] // EF Core не підтримує список рядків напряму, тому ігноруємо цю властивість в БД
         public List<string> RentalAddresses { get; set; } = new List<string>(); // Оренда
+
         public int PropertiesOwned { get; set; } = 0; // Здача
 
-        public PropertyUser(int id, string name, string email, string pass, string phoneNumber)
-            : base(id, name, email, pass, phoneNumber, UserType.Regular) { }
+        public PropertyUser() : base() { }
+
+        public PropertyUser(int id, string name, string email, string phoneNumber, string passwordHash)
+            : base(id, name, email, phoneNumber, UserType.Regular, passwordHash) { } // порядок аргументів виправлено
 
         // Оренда об'єкта
         public void RentProperty(string address)
@@ -60,12 +87,52 @@ namespace EasyFlat.Classes
     {
         public string Role { get; }
 
-        public Administrator(int id, string name, string email, string pass, string phoneNumber, string role)
-            : base(id, name, email, pass, phoneNumber, UserType.Administrator)
+        public Administrator() : base() { }
+
+        public Administrator(int id, string name, string email, string phoneNumber, string passwordHash, string role)
+            : base(id, name, email, phoneNumber, UserType.Administrator, passwordHash)
         {
             Role = role;
         }
     }
 
-    public class UserRepository : Repository<User> { }
+    public class UserRepository
+    {
+        private readonly AppDbContext _context;
+
+        public UserRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public User GetByEmail(string email)
+        {
+            return _context.Users.SingleOrDefault(u => u.Email == email);
+        }
+
+        public List<User> GetAll()
+        {
+            return _context.Users.ToList();
+        }
+
+        public void Add(User user)
+        {
+            _context.Users.Add(user);
+            _context.SaveChanges();
+        }
+
+        public void Update(User user)
+        {
+            _context.Users.Update(user);
+            _context.SaveChanges();
+        }
+
+        public void Remove(User user)
+        {
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+        }
+    }
 }
+
+

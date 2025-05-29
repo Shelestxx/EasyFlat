@@ -21,48 +21,60 @@ namespace EasyFlat
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            string email = txtEmail.Text;
+            string email = txtEmail.Text.Trim();
             string pass = txtPass.Text;
-            string name = txtName.Text;
-            string phoneNumber = txtPhoneNumber.Text;
-           
+            string name = txtName.Text.Trim();
+            string phoneNumber = txtPhoneNumber.Text.Trim();
 
-            if (email == null || email == "" | pass == null || pass == "" | name == null || name == "" | phoneNumber == null || phoneNumber == "")
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(pass) ||
+                string.IsNullOrEmpty(name) || string.IsNullOrEmpty(phoneNumber))
             {
-                MessageBox.Show("Спробуйте знову");
+                MessageBox.Show("Заповніть усі поля!");
+                return;
             }
-            // Валидация имени: только буквы
+
             if (!Regex.IsMatch(name, @"^[a-zA-Zа-яА-Я]+$"))
             {
                 MessageBox.Show("Ім'я має складатися з літер!");
                 return;
             }
 
-            // Валидация номера телефона: только цифры
             if (!Regex.IsMatch(phoneNumber, @"^\d+$"))
             {
-                MessageBox.Show("Номер телефону має складатися з цифер!");
+                MessageBox.Show("Номер телефону має складатися лише з цифр!");
                 return;
             }
-            UserManager userManager = new UserManager();
-            int generatedId = userManager.GenerateUserId();    
 
-            User user = new User(generatedId, name, email, pass, phoneNumber, UserType.Regular);
-
-            if (userManager.AddUser(user))
+            using (var context = new AppDbContext())
             {
+                // Перевіряємо, чи існує користувач з таким email
+                bool emailExists = context.Users.Any(u => u.Email == email);
+                if (emailExists)
+                {
+                    MessageBox.Show("Користувач з таким email вже існує!");
+                    return;
+                }
+
+                // Створюємо нового користувача
+                var user = new User
+                {
+                    Name = name,
+                    Email = email,
+                    PhoneNumber = phoneNumber,
+                    Type = UserType.Regular,
+                };
+                user.SetPassword(pass); // хешує пароль всередині методу
+
+                context.Users.Add(user);
+                context.SaveChanges(); // зберігаємо до БД
+
                 MessageBox.Show("Реєстрація пройшла успішно!");
-                this.Close(); 
-            }
-            else
-            {
-                MessageBox.Show("Користувач вже зареєстрований!");
-            }
 
-            AllListingsForm newForm = new AllListingsForm(user); // Создаем экземпляр Form2
-            newForm.Show(); // Открываем Form2
-            this.Hide(); // Скрываем Form1 (чтобы можно было вернуться)
-
+                AllListingsForm newForm = new AllListingsForm(user);
+                newForm.Show();
+                this.Hide();
+            }
         }
+
     }
 }

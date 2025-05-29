@@ -9,14 +9,33 @@ namespace EasyFlat.Classes
     using EasyFlat.Interfaces;
     using EasyFlat.Repository;
 
-    public class Repository<T> : IRepository<T> where T : IEntity
+    public class Repository<T> : IRepository<T> where T : class, IEntity
     {
         protected List<T> _entities = new List<T>();
 
-        public virtual void Add(T entity) => _entities.Add(entity);
-        public virtual void Remove(T entity) => _entities.Remove(entity);
-        public T GetById(int id) => _entities.FirstOrDefault(e => e.ID == id);
-        public IEnumerable<T> GetAll() => _entities;
-        public IEnumerable<T> GetSorted() => _entities.OrderBy(e => e.ID);
+        public virtual void Add(T entity)
+        {
+            _entities.Add(entity);
+        }
+
+        public virtual void Remove(T entity)
+        {
+            _entities.Remove(entity);
+        }
+
+        public virtual T GetById(int id)
+        {
+            return _entities.FirstOrDefault(e => e.ID == id);
+        }
+
+        public virtual IEnumerable<T> GetAll()
+        {
+            return _entities;
+        }
+
+        public virtual IEnumerable<T> GetSorted()
+        {
+            return _entities.OrderBy(e => e.ID); // або інша логіка
+        }
     }
 }

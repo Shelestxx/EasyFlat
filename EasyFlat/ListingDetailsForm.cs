@@ -8,12 +8,15 @@ namespace EasyFlat
     {
         private Listing _listing;
         private User _currentUser;
+        private readonly ListingRepository _listingRepository;
 
-        public ListingDetailsForm(Listing listing, User currentUser)
+        public ListingDetailsForm(Listing listing, User currentUser, ListingRepository listingRepository)
         {
             InitializeComponent();
             _listing = listing;
             _currentUser = currentUser;
+            _listingRepository = listingRepository;
+
             DisplayDetails();
             MakeFieldsReadOnly();
         }
@@ -49,11 +52,12 @@ namespace EasyFlat
                 return;
             }
 
-            EditListingForm editForm = new EditListingForm(_listing);
+            EditListingForm editForm = new EditListingForm(_listing, _listingRepository);
+
             if (editForm.ShowDialog() == DialogResult.OK)
             {
                 _listing = editForm.UpdatedListing;
-                ListingRepository.Instance.Update(_listing);
+                _listingRepository.Update(_listing);  // Звертаємось через екземпляр
                 MessageBox.Show("Оголошення оновлено.");
                 DisplayDetails();
             }
@@ -70,7 +74,7 @@ namespace EasyFlat
             var result = MessageBox.Show("Ви впевнені, що хочете видалити це оголошення?", "Підтвердження", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                ListingRepository.Instance.Remove(_listing);
+                _listingRepository.Remove(_listing);  // Звертаємось через екземпляр
                 MessageBox.Show("Оголошення видалено.");
                 this.Close();
             }

@@ -9,10 +9,13 @@ namespace EasyFlat
         public Listing UpdatedListing { get; private set; }
         private readonly Listing _originalListing;
 
-        public EditListingForm(Listing listing)
+        private readonly ListingRepository _listingRepository;
+
+        public EditListingForm(Listing listing, ListingRepository listingRepository)
         {
             InitializeComponent();
             _originalListing = listing;
+            _listingRepository = listingRepository;
             FillFields();
 
             txtRentPrice.KeyPress += txtRentPrice_KeyPress;
@@ -42,22 +45,20 @@ namespace EasyFlat
                 return;
             }
 
-            UpdatedListing = new Listing(
-                _originalListing.ID,
-                txtTitle.Text,
-                txtDescription.Text,
-                txtLocation.Text,
-                rentPrice,
-                roomCount,
-                area,
-                _originalListing.OwnerID,
-                _originalListing.PublishDate,
-                txtPhoneNumber.Text
-            );
+            _originalListing.Title = txtTitle.Text;
+            _originalListing.Description = txtDescription.Text;
+            _originalListing.Location = txtLocation.Text;
+            _originalListing.RentPrice = rentPrice;
+            _originalListing.RoomCount = roomCount;
+            _originalListing.Area = area;
+            _originalListing.PhoneNumber = txtPhoneNumber.Text;
+
+            _listingRepository.Update(_originalListing);
 
             DialogResult = DialogResult.OK;
             Close();
         }
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

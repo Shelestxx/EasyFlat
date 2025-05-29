@@ -1,8 +1,5 @@
 ﻿using EasyFlat.Classes;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -10,17 +7,16 @@ namespace EasyFlat
 {
     public partial class ListingForm : Form
     {
-        private readonly ListingRepository _listingRepository = new ListingRepository();
-        private readonly User _currentUser;
+        private readonly ListingRepository _listingRepository;
+        private readonly AppDbContext _dbContext = new AppDbContext();
 
-        private const string ListingsFilePath = "../../listings.json";
+        private readonly User _currentUser;
 
         public ListingForm(User currentUser)
         {
             InitializeComponent();
             _currentUser = currentUser;
-            LoadListingsFromFile();
-
+            _listingRepository = new ListingRepository(_dbContext);
             txtRentPrice.KeyPress += txtRentPrice_KeyPress;
             txtRoomCount.KeyPress += txtRoomCount_KeyPress;
             txtArea.KeyPress += txtArea_KeyPress;
@@ -79,6 +75,7 @@ namespace EasyFlat
                 MessageBox.Show("Будь ласка, введіть номер телефону.");
                 return;
             }
+
             if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(description) ||
                 string.IsNullOrWhiteSpace(location) || !decimal.TryParse(txtRentPrice.Text, out rentPrice) ||
                 !int.TryParse(txtRoomCount.Text, out roomCount) || !double.TryParse(txtArea.Text, out area))
@@ -87,38 +84,27 @@ namespace EasyFlat
                 return;
             }
 
-            int newId = _listingRepository.GetAll().Any() ? _listingRepository.GetAll().Max(l => l.ID) + 1 : 1;
-            int ownerId = _currentUser.ID;
+            Listing newListing = new Listing
+            {
+                Title = title,
+                Description = description,
+                Location = location,
+                RentPrice = rentPrice,
+                RoomCount = roomCount,
+                Area = area,
+                PublishDate = publishDate,
+                OwnerID = _currentUser.ID,
+                PhoneNumber = phoneNumber
+            };
 
-            Listing newListing = new Listing(newId, title, description, location, rentPrice, roomCount, area, ownerId, publishDate, phoneNumber);
             _listingRepository.Add(newListing);
-            SaveListingsToFile();
 
-            MessageBox.Show("Список додано успішно!");
+            MessageBox.Show("Оголошення додано успішно!");
             ClearFields();
 
             AllListingsForm newForm = new AllListingsForm(_currentUser);
             newForm.Show();
             this.Hide();
-        }
-
-        private void LoadListingsFromFile()
-        {
-            if (File.Exists(ListingsFilePath))
-            {
-                string json = File.ReadAllText(ListingsFilePath);
-                var listings = JsonConvert.DeserializeObject<List<Listing>>(json);
-                foreach (var listing in listings)
-                {
-                    _listingRepository.Add(listing);
-                }
-            }
-        }
-
-        private void SaveListingsToFile()
-        {
-            string json = JsonConvert.SerializeObject(_listingRepository.GetAll().ToList(), Formatting.Indented);
-            File.WriteAllText(ListingsFilePath, json);
         }
 
         private void ClearFields()
