@@ -9,12 +9,12 @@ namespace UnitTestProject1
         [Fact]
         public void UserInitialization_ShouldSetPropertiesCorrectly()
         {
-            var user = new User(1, "Oleh", "oleh@example.com", "password", "1234567890", UserType.Regular);
+            var user = new User(1, "Oleh", "oleh@example.com", "1234567890", UserType.Regular, "password");
 
             Assert.Equal(1, user.ID);
             Assert.Equal("Oleh", user.Name);
             Assert.Equal("oleh@example.com", user.Email);
-            Assert.Equal("password", user.Pass);
+            Assert.Equal("password", user.PasswordHash);
             Assert.Equal("1234567890", user.PhoneNumber);
             Assert.Equal(UserType.Regular, user.Type);
         }
