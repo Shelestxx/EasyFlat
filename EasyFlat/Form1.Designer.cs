@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             btnRegistration = new Button();
             btnLogin = new Button();
+            btnManageUsers = new Button();
             SuspendLayout();
             // 
             // btnRegistration
@@ -67,6 +68,16 @@
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
+            // btnManageUsers
+            // 
+            btnManageUsers.Location = new Point(578, 99);
+            btnManageUsers.Name = "btnManageUsers";
+            btnManageUsers.Size = new Size(94, 29);
+            btnManageUsers.TabIndex = 2;
+            btnManageUsers.Text = "button1";
+            btnManageUsers.UseVisualStyleBackColor = true;
+            btnManageUsers.Click += btnManageUsers_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -74,6 +85,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(791, 440);
+            Controls.Add(btnManageUsers);
             Controls.Add(btnLogin);
             Controls.Add(btnRegistration);
             FormBorderStyle = FormBorderStyle.None;
@@ -87,5 +99,6 @@
 
         private Button btnRegistration;
         private Button btnLogin;
+        private Button btnManageUsers;
     }
 }

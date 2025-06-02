@@ -18,7 +18,7 @@ namespace EasyFlat
         }
 
 
-        
+
 
         private void btnRegistration_Click(object sender, EventArgs e)
         {
@@ -32,6 +32,13 @@ namespace EasyFlat
             LoginForm newForm = new LoginForm(); // —оздаем экземпл€р Form2 
             newForm.Show(); // ќткрываем Form2
             this.Hide(); // —крываем Form1 (чтобы можно было вернутьс€)
+        }
+
+        private void btnManageUsers_Click(object sender, EventArgs e)
+        {
+            AdminUserManagementForm userForm = new AdminUserManagementForm();
+            userForm.ShowDialog();
+
         }
     }
 }
