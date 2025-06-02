@@ -33,6 +33,12 @@ namespace EasyFlat
                 return;
             }
 
+            if (!Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@gmail\.com$"))
+            {
+                MessageBox.Show("Електронна пошта має бути у форматі *@gmail.com!");
+                return;
+            }
+
             if (!Regex.IsMatch(name, @"^[a-zA-Zа-яА-Я]+$"))
             {
                 MessageBox.Show("Ім'я має складатися з літер!");
@@ -75,6 +81,5 @@ namespace EasyFlat
                 this.Hide();
             }
         }
-
     }
 }
